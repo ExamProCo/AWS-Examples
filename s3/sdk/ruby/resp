@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /workspace/AWS-Examples/s3/sdk/ruby/s3.rb:20 :
+
+    [1;34m15[0m:   [35mbucket[0m: bucket_name,            [1;34m# Name of the bucket[0m
+    [1;34m16[0m:   [35mcreate_bucket_configuration[0m: {
+    [1;34m17[0m:     [35mlocation_constraint[0m: region   [1;34m# Region for the bucket[0m
+    [1;34m18[0m:   }
+    [1;34m19[0m: })
+ => [1;34m20[0m: binding.pry
+    [1;34m21[0m: 
+    [1;34m22[0m: [1;34m# Determine the number of files to create and upload[0m
+    [1;34m23[0m: number_of_files = [1;34m1[0m + rand([1;34m6[0m)     [1;34m# Generating a random number between 1 and 6[0m
+    [1;34m24[0m: puts [31m[1;31m"[0m[31mnumber_of_files: #{number_of_files}[0m[31m[1;31m"[0m[31m[0m
+    [1;34m25[0m: 
+
