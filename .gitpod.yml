@@ -1,4 +1,7 @@
 tasks:
+  - name: cdk
+    before: |
+      npm i -g aws-cdk
   - name: terraform
     before: |
       sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
