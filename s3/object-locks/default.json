@@ -1,0 +1,1 @@
+{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "GOVERANCE", "Days": 1 }}}
