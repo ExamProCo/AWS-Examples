@@ -4,12 +4,7 @@ tasks:
       npm i -g aws-cdk
   - name: terraform
     before: |
-      sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
-      wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-      gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
-      echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-      sudo apt update
-      sudo apt-get install terraform
+      ./bin/terraform_cli_install.sh
   # random utilities
   - name: utils
     before: |
@@ -19,23 +14,10 @@ tasks:
   # https://docs.aws.amazon.com/powershell/latest/reference/
   - name: powershell
     before: |
-      sudo apt-get update
-      sudo apt-get install -y wget apt-transport-https software-properties-common
-      source /etc/os-release
-      wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
-      sudo dpkg -i packages-microsoft-prod.deb
-      rm packages-microsoft-prod.deb
-      sudo apt-get update
-      sudo apt-get install -y powershell
-      # pwsh
-      # Install-Module -Name AWS.Tools.Installer
+      ./bin/powershell_cli_install.sh
   # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
-      cd /workspace
-      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      unzip awscliv2.zip
-      sudo ./aws/install
-      cd $THEIA_WORKSPACE_ROOT
+      ./bin/aws_cli_install.sh
