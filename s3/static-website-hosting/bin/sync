@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+aws s3 sync /workspace/AWS-Examples/s3/static-website-hosting/app/build/ s3://www.mindmazelab.com

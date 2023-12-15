@@ -1,0 +1,62 @@
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Static Website Hosting for SPA using CloudFront OAC"
+
+Parameters:
+  NakedDomainName:
+    Type: String
+    Default: 'mindmazelab.com'
+
+Resources:
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
+  NakedBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Ref NakedDomainName
+      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html
+      WebsiteConfiguration:
+        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectallrequeststo.html
+        RedirectAllRequestsTo:
+          HostName: !Sub www.${NakedDomainName}.s3-website.${AWS::Region}.amazonaws.com
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
+  WWWBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub "www.${NakedDomainName}"
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+        RoutingRules:
+          - RoutingRuleCondition:
+              HttpErrorCodeReturnedEquals: '404'
+              KeyPrefixEquals: contact-us
+            RedirectRule:
+              ReplaceKeyPrefixWith: contact
+      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: false
+        RestrictPublicBuckets: false
+
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucketpolicy.html
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WWWBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource: !Sub "arn:aws:s3:::www.${NakedDomainName}/*"
+            Principal: '*'
+
+Outputs:
+  NakedBucketUrl:
+    Description: S3 static website for naked endpoint url
+    Value: !GetAtt NakedBucket.WebsiteURL
+  WWWBucketUrl:
+    Description: S3 static website for www endpoint url
+    Value: !GetAtt WWWBucket.WebsiteURL
