@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+WORKPATH="/workspace/AWS-Examples/s3/event-notifications"
+BUCKET="$(terraform output -raw s3_bucket_name)"
+
+aws s3 rm "s3://$BUCKET/topic/topic.json"
+aws s3 cp "$WORKPATH/tmp/topic.json" "s3://$BUCKET/topic/topic.json"

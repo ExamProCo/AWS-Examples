@@ -1,0 +1,5 @@
+URL="https://4567-$GITPOD_WORKSPACE_ID.$GITPOD_WORKSPACE_CLUSTER_HOST/data"
+
+curl -X POST $URL \
+-H "Content-Type: application/json" \
+-d '{"key1": "value1", "key2": "value2"}'
