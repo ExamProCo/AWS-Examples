@@ -1,0 +1,15 @@
+{
+  "Rules": [
+    {
+        "ID": "Move to IA",
+        "Status": "Enabled",
+        "Prefix": "",
+        "Transitions": [
+            {
+                "Days": 30,
+                "StorageClass": "STANDARD_IA"
+            }
+        ]
+    }
+  ]
+}
