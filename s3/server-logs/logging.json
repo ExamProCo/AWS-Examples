@@ -1,0 +1,6 @@
+{
+  "LoggingEnabled": {
+      "TargetBucket": "server-logs-dest-ab-4242",
+      "TargetPrefix": "Logs/"
+  }
+}
