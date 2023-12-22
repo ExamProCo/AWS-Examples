@@ -1,0 +1,2 @@
+[toplevel]
+dsub = ec2 describe-subnets --filters Name=state,Values=available --query Subnets[].SubnetId --output table
