@@ -9,11 +9,19 @@ VPC_ID=$(aws ec2 create-vpc \
 --query Vpc.VpcId \
 --output text)
 
-echo $VPC_ID
+echo "VPC_ID: $VPC_ID"
 
 # create an IGW
+IGW_ID=$(aws ec2 create-internet-gateway \
+--query InternetGateway.InternetGatewayId
+--ouput text
+)
+
+echo "IGW_ID: $IGW_ID"
 
 # attach an IGW
+
+aws ec2 attach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
 
 # create a new subnet
 
