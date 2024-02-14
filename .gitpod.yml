@@ -12,9 +12,9 @@ tasks:
   # https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.4
   # https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-linux-mac.html
   # https://docs.aws.amazon.com/powershell/latest/reference/
-  - name: powershell
-    before: |
-      ./bin/powershell_cli_install.sh
+  #- name: powershell
+  #  before: |
+  #    ./bin/powershell_cli_install.sh
   # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
   - name: aws-cli
     env:
