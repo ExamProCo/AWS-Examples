@@ -1,0 +1,28 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+packages:
+  - httpd
+
+write_files:
+  - path: /var/www/html/index.html
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Welcome to My Website</title>
+      </head>
+      <body>
+          <h1>Hello, World!</h1>
+          <p>This is a custom HTML page served from my Apache server on EC2.</p>
+      </body>
+      </html>
+    owner: root:root
+    permissions: '0644'
+
+runcmd:
+  - systemctl start httpd.service
+  - systemctl enable httpd.service
+  - systemctl restart httpd.service
+Instructions for Use:
