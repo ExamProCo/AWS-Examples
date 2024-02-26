@@ -39,6 +39,9 @@ $serviceMonitorPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\Apac
 $httpdPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\httpd.exe"
 Start-Process -FilePath $httpdPath -ArgumentList "-k install -d C:\Apache24" -Wait
 
+# Configure apache to start on port 8080
+(Get-Content C:\Apache24\conf\httpd.conf) -replace '^Listen 80$', 'Listen 8080' | Set-Content C:\Apache24\conf\httpd.conf
+
 # Start the Apache service
 Start-Service -Name "Apache2.4"
 
