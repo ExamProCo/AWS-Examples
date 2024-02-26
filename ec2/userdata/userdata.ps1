@@ -33,7 +33,7 @@ Remove-Item -Path $zipPath
 # For example, editing httpd.conf to adjust server settings
 
 # Path to the Apache Service Monitor executable
-$serviceMonitorPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\ApacheMonitor.exe"
+#$serviceMonitorPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\ApacheMonitor.exe"
 
 # Install Apache as a Windows service (using the httpd.exe with the -k install option)
 $httpdPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\httpd.exe"
