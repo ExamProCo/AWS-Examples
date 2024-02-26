@@ -21,7 +21,7 @@ $WebClient = New-Object System.Net.WebClient
 $WebClient.DownloadFile($downloadUrl,$zipPath)
 
 # Define the extraction path
-$extractPath = "C:\Apache24"
+$extractPath = "C:\"
 
 # Extract the zip file
 Expand-Archive -Path $zipPath -DestinationPath $extractPath
@@ -33,11 +33,11 @@ Remove-Item -Path $zipPath
 # For example, editing httpd.conf to adjust server settings
 
 # Path to the Apache Service Monitor executable
-$serviceMonitorPath = Join-Path -Path $extractPath -ChildPath "bin\ApacheMonitor.exe"
+$serviceMonitorPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\ApacheMonitor.exe"
 
 # Install Apache as a Windows service (using the httpd.exe with the -k install option)
-$httpdPath = Join-Path -Path $extractPath -ChildPath "bin\httpd.exe"
-Start-Process -FilePath $httpdPath -ArgumentList "-k install" -Wait
+$httpdPath = Join-Path -Path $extractPath -ChildPath "Apache24\bin\httpd.exe"
+Start-Process -FilePath $httpdPath -ArgumentList "-k install -d C:\Apache24" -Wait
 
 # Start the Apache service
 Start-Service -Name "Apache2.4"
