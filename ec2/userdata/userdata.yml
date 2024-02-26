@@ -20,9 +20,7 @@ write_files:
       </html>
     owner: root:root
     permissions: '0644'
-
 runcmd:
   - systemctl start httpd.service
   - systemctl enable httpd.service
   - systemctl restart httpd.service
-Instructions for Use:
