@@ -3,4 +3,5 @@ Statement:
   - Sid: "AccessToS3"
     Effect: "Allow"
     Action: "s3:ListBucket"
-    Resource: "*"
+    Resource: 
+      - "*"
