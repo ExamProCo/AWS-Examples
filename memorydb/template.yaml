@@ -6,16 +6,16 @@ Parameters:
     Default: t3.micro
   VpcId:
     Type: String
-    Default: vpc-08f0ec02f7471b018
+    Default: vpc-0d02c00282912fce2
   ImageId:
     Type: String
     Default: ami-0c777892a9bc2e481
   SubnetId:
     Type: String
-    Default: subnet-0e0fd31733061237d
+    Default: subnet-010cdf676b1e52543
   SecurityGroupId:
     Type: String
-    Default: sg-098fa834d80e2fc3c
+    Default: sg-004e649a61868be2c
 Resources:
   SSMRole:
     Type: AWS::IAM::Role
@@ -50,8 +50,8 @@ Resources:
       UserData:
         Fn::Base64: |
           #!/bin/bash
-          sudo apt install lsb-release curl gpg -y
+          sudo apt install lsb-release curl gpg
           curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
           sudo apt-get update
-          sudo apt-get install redis -y
+          sudo apt-get install redis
