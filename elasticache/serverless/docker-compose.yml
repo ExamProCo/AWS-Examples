@@ -1,0 +1,13 @@
+version: '3.8' # Use Docker Compose file format 3.8
+
+services:
+  redis:
+    image: redis:7 # Use Redis version 7
+    container_name: redis7
+    ports:
+      - "6379:6379" # Map port 6379 on the host to port 6379 in the container
+    volumes:
+      - redis_data:/data # Persist Redis data to a named volume
+
+volumes:
+  redis_data: # Define the volume to persist Redis data
