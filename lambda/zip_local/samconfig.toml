@@ -1,0 +1,4 @@
+version=0.1
+[default.deploy.parameters]
+s3_bucket = "my-lambda-artifacts-ab-1512"
+region = "ca-central-1"

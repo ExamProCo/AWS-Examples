@@ -1,0 +1,9 @@
+version=0.1
+[default.package.parameters]
+s3_bucket = "my-lambda-artifacts-ab-1512"
+region = "ca-central-1"
+image_repository="982383527471.dkr.ecr.ca-central-1.amazonaws.com/python-container-example"
+[default.deploy.parameters]
+s3_bucket = "my-lambda-artifacts-ab-1512"
+region = "ca-central-1"
+image_repository="982383527471.dkr.ecr.ca-central-1.amazonaws.com/python-container-example"

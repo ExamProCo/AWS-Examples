@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  InlineLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: function.handler
+      Runtime: python3.12
+      PackageType: Zip
+      CodeUri: InlineLambda
+      Layers:
+      - arn:aws:lambda:ca-central-1:982383527471:layer:faker-py-layer:2
+    Metadata:
+      SamResourceId: InlineLambda
