@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Lambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.12
+      PackageType: Zip
+      InlineCode: |
+        def handler(event, context):
+            message = 'Hello {} {}!'.format(event['queryStringParameters']['first_name'],event['queryStringParameters']['last_name'])  
+            res = {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "*/*"
+                },
+                "body": message
+            }
+            return res
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /path
+            Method: get
