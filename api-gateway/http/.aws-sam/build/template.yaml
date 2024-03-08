@@ -12,8 +12,20 @@ Resources:
         \         \"Content-Type\": \"*/*\"\n        },\n        \"body\": message\n\
         \    }\n    return res\n"
       Events:
-        ApiEvent:
-          Type: Api
+        ExplicitApi:
+          Type: HttpApi
           Properties:
+            ApiId:
+              Ref: HttpApi
+            Method: GET
             Path: /path
-            Method: get
+            TimeoutInMillis: 15000
+            PayloadFormatVersion: '2.0'
+            RouteSettings:
+              ThrottlingBurstLimit: 600
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      RouteSettings:
+        GET /path:
+          ThrottlingBurstLimit: 500

@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Lambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.12
+      PackageType: Zip
+      InlineCode: |
+        def handler(event, context):
+            message = 'Hello {} {}!'.format(event['queryStringParameters']['first_name'],event['queryStringParameters']['last_name'])  
+            res = {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "*/*"
+                },
+                "body": message
+            }
+            return res
+      #Events:
+      #  ApiEvent:
+      #    Type: HttpApi
+      #    Properties:
+      #      Path: /path
+      #      Method: get
+      Events:
+        ExplicitApi: # warning: creates a public endpoint
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Method: GET
+            Path: /path
+            TimeoutInMillis: 15000
+            PayloadFormatVersion: "2.0"
+            RouteSettings:
+              ThrottlingBurstLimit: 600
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      #DefaultRouteSettings:
+      #  ThrottlingBurstLimit: 200
+      RouteSettings:
+        "GET /path":
+          ThrottlingBurstLimit: 500 # overridden in HttpApi Event
+      #StageVariables:
+      #  StageVar: Value
+      #FailOnWarnings: true

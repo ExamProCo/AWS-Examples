@@ -20,6 +20,6 @@ echo "== SAM deploy..."
 
 sam deploy \
   --template-file "./.aws-sam/build/template.yaml" \
-  --stack-name "api-rest-lamba-py" \
+  --stack-name "api-http-lambda-py" \
   --capabilities "CAPABILITY_IAM"
   #--config-file "$config_path" \
