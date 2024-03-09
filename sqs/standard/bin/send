@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+echo "== send"
+
+root_path=$(realpath .)
+message_attributes_path="file://${root_path}/send-message.json"
+
+QUEUE_URL=https://sqs.ca-central-1.amazonaws.com/982383527471/sqs-standard-MyQueue-ONKfvvgwWJo2
+
+
+# https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/send-message.html
+aws sqs send-message \
+--queue-url $QUEUE_URL \
+--message-body "Hello 1!" \
+--delay-seconds 1 \
+--message-attributes $message_attributes_path
+
+aws sqs send-message \
+--queue-url $QUEUE_URL \
+--message-body "Hello 2!" \
+--delay-seconds 2 \
+--message-attributes $message_attributes_path
+
+aws sqs send-message \
+--queue-url $QUEUE_URL \
+--message-body "Hello 3!" \
+--delay-seconds 3 \
+--message-attributes $message_attributes_path
+
+aws sqs send-message \
+--queue-url $QUEUE_URL \
+--message-body "Hello 4!" \
+--delay-seconds 4 \
+--message-attributes $message_attributes_path
+
+aws sqs send-message \
+--queue-url $QUEUE_URL \
+--message-body "Hello 5!" \
+--delay-seconds 5 \
+--message-attributes $message_attributes_path

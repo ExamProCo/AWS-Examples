@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A Simple SQS queue
+Resources: 
+  MyQueue: 
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html
+    Type: AWS::SQS::Queue
+    #Properties: 
+      # QueueName: "StandardQueue"
