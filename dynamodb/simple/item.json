@@ -1,0 +1,8 @@
+{
+  "id":  {
+    "S": "hello"
+  },
+  "fruit": {
+    "S": "Apple"
+  }
+}
