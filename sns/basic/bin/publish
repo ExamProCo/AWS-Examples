@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+TOPIC_ARN="arn:aws:sns:ca-central-1:982383527471:sns-basisc-lambda-SNSTopic-PX5aIoGcnICj"
+
+aws sns publish \
+--topic-arn $TOPIC_ARN \
+--message '{ "first_name": "Andrew", "last_name": "Brown" }'

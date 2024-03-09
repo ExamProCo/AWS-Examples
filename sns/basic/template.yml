@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Sns Basic
+Resources:
+  SNSTopic:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html
+    Type: AWS::SNS::Topic
+  Lambda:
+    # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: python3.12
+      PackageType: Zip
+      InlineCode: |
+        import json
+        def handler(event, context):
+            message_str = event['Records'][0]['Sns']['Message']
+            m = json.loads(message_str)
+            message = 'Hello {} {}!'.format(m['first_name'], m['last_name'])  
+            print(message)
+            return
+      Events:
+        SNSEvent:
+          Type: SNS
+          Properties:
+            Topic: !Ref SNSTopic
