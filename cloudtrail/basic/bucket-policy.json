@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "AWSCloudTrailWrite20150319",
+          "Effect": "Allow",
+          "Principal": {"Service": "cloudtrail.amazonaws.com"},
+          "Action": "s3:PutObject",
+          "Resource": "arn:aws:s3:::my-cloudtrail-ab-1212/AWSLogs/myAccountID/*",
+          "Condition": {
+              "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control",
+                  "aws:SourceArn": "arn:aws:cloudtrail:ca-central-1:982383527471:trail/MyTrail"
+              }
+          }
+      }
+  ]
+}
