@@ -1,0 +1,40 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-eventstream (1.3.0)
+    aws-partitions (1.909.0)
+    aws-sdk-core (3.191.6)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.8)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-translate (1.63.0)
+      aws-sdk-core (~> 3, >= 3.191.0)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.8.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+    coderay (1.1.3)
+    jmespath (1.6.2)
+    method_source (1.0.0)
+    mini_portile2 (2.8.5)
+    nokogiri (1.16.3)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.3-x86_64-linux)
+      racc (~> 1.4)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    racc (1.7.3)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  aws-sdk-translate
+  nokogiri
+  pry
+
+BUNDLED WITH
+   2.5.6
