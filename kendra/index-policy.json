@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": "cloudwatch:PutMetricData",
+          "Resource": "*",
+          "Condition": {
+              "StringEquals": {
+                  "cloudwatch:namespace": "AWS/Kendra"
+              }
+          }
+      },
+      {
+          "Effect": "Allow",
+          "Action": "logs:DescribeLogGroups",
+          "Resource": "*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": "logs:CreateLogGroup",
+          "Resource": "arn:aws:logs:us-east-1:982383527471:log-group:/aws/kendra/*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "logs:DescribeLogStreams",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+          ],
+          "Resource": "arn:aws:logs:us-east-1:982383527471:log-group:/aws/kendra/*:log-stream:*"
+      }
+  ]
+}
