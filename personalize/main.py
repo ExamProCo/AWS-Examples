@@ -1,17 +1,23 @@
 import boto3
+from botocore.config import Config
 
-personalize_runtime = boto3.client('personalize-runtime')
+my_config = Config(
+    region_name = 'ca-central-1'
+)
+client = boto3.client('personalize-runtime', config=my_config)
 
-campaign_arn = 'your-campaign-arn-here'
-user_id = 'user-id-for-recommendations'
+campaign_arn = 'arn:aws:personalize:ca-central-1:982383527471:campaign/my-campaign'
+user_id = '127'
+item_id='9910'
 # context = {'itemId': 'item-id-for-context'}
 
-response = personalize_runtime.get_recommendations(
-    campaignArn=campaign_arn,
-    userId=user_id,
-    # context=context
+resp = client.get_recommendations(
+  campaignArn=campaign_arn,
+  userId=user_id,
+  itemId=item_id,
+  # context=context
 )
 
 # Print out the recommendation results
-for item in response['itemList']:
-    print(f"Item ID: {item['itemId']} Score: {item.get('score', 'N/A')}")
+for item in resp['itemList']:
+  print(f"Item ID: {item['itemId']} Score: {item.get('score', 'N/A')}")
