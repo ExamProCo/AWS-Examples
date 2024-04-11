@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bson (5.0.0)
+    coderay (1.1.3)
+    method_source (1.0.0)
+    mongo (2.20.0)
+      bson (>= 4.14.1, < 6.0.0)
+    ox (2.14.18)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  mongo
+  ox
+  pry
+
+BUNDLED WITH
+   2.5.6
