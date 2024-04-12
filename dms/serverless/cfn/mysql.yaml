@@ -1,0 +1,104 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: RDS Postgress
+Parameters:
+  VpcId:
+    Type: String
+  Username:
+    Type: String
+    Default: admin
+  Password:
+    Type: String
+    Default: password
+  BackupRetentionPeriod:
+    Type: Number
+    Default: 0
+  InstanceClass:
+    Type: String
+    Default: db.t3.micro
+  Engine:
+    Type: String
+    Default: mysql
+  EngineVersion:
+    Type: String
+    Default: 8.0.35
+  PubliclyAccessible:
+    Type: String
+    AllowedValues:
+      - true
+      - false
+    Default: true
+  DeletionProtection:
+    Type: String
+    AllowedValues:
+      - true
+      - false
+    Default: false
+  RdsDatabaseName:
+    Type: String
+    Default: "mydatabase"
+  RdsPort:
+    Type: Number
+    Default: 3306
+  Subnets:
+    Type: 'List<AWS::EC2::Subnet::Id>'
+    Description: A list of subnets for the Auto Scaling group    
+Resources:
+  DbSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "Security Group for RDS Instance"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: !Ref RdsPort
+          ToPort: !Ref RdsPort
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      VpcId: !Ref VpcId
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: "My DB Subnet Group"
+      SubnetIds: !Ref Subnets
+
+  RdsInstance:
+    Type: AWS::RDS::DBInstance
+    DeletionPolicy: 'Delete'
+    UpdateReplacePolicy: 'Delete'
+    Properties:
+      MasterUsername: !Ref Username
+      MasterUserPassword: !Ref Password
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      AllocatedStorage: '20'
+      AllowMajorVersionUpgrade: true
+      AutoMinorVersionUpgrade: true
+      # This should be turned off When using AuthIAM on the Proxy.
+      Port: !Ref RdsPort
+      EnableIAMDatabaseAuthentication: false
+      BackupRetentionPeriod: !Ref BackupRetentionPeriod
+      DBInstanceClass: !Ref InstanceClass
+      DBName: !Ref RdsDatabaseName
+      Engine: !Ref Engine
+      DeletionProtection: !Ref DeletionProtection
+      EngineVersion: !Ref EngineVersion
+      PubliclyAccessible: !Ref PubliclyAccessible
+      VPCSecurityGroups:
+        - !GetAtt DbSg.GroupId
+Outputs:
+  StackName:
+    Value: !Ref AWS::StackName
+  RdsUsername:
+    Value: !Ref Username
+    Export:
+      Name: !Sub ${AWS::StackName}RdsUsername
+  RdsPort:
+    Value: !Ref RdsPort
+    Export:
+      Name: !Sub ${AWS::StackName}RdsPort
+  RdsDatabaseName:
+    Value: !Ref RdsDatabaseName
+    Export:
+      Name: !Sub ${AWS::StackName}RdsDatabaseName
