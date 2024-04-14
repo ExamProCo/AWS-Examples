@@ -9,6 +9,9 @@ WORKDIR /app
 # this contains the libraries want to install to run the app
 COPY requirements.txt requirements.txt
 
+# This is just junk
+COPY Readme.md Readme.md
+
 # Inside Container
 # Install the python libraries used for the app
 RUN pip3 install -r requirements.txt

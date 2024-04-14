@@ -1,0 +1,19 @@
+{
+  "ServiceName": "app-python",
+  "SourceConfiguration": {
+      "AuthenticationConfiguration": {
+      "AccessRoleArn": "arn:aws:iam::982383527471:role/service-role/AppRunnerECRAccessRole"
+    },
+    "ImageRepository": {
+      "ImageIdentifier": "982383527471.dkr.ecr.us-east-1.amazonaws.com/app:latest",
+      "ImageConfiguration": {
+        "Port": "4567"
+      },
+      "ImageRepositoryType": "ECR"
+    }
+  },
+  "InstanceConfiguration": {
+      "Cpu": "0.25 vCPU",
+      "Memory": "1 GB"
+  }
+}
