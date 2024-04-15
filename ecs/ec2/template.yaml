@@ -1,13 +1,13 @@
 AWSTemplateFormatVersion: 2010-09-09
 
 Description: |
-  The networking and cluster configuration to support fargate containers
-  - ECS ECS Cluster
-
+  - ECS EC2 Cluster
 Parameters:
   #Backend ------
   InstanceType:
     Type: String
+    # t3: Nitro
+    # t2: Xen
     Default: t3.medium
   ECSAMI:
     Type: String
@@ -37,7 +37,7 @@ Resources:
         ExecuteCommandConfiguration:
           Logging: DEFAULT
       #ServiceConnectDefaults:
-      #  Namespace: cruddur
+      #  Namespace: basic
   # We have to create this SG before the service so we can pass it to database SG
   ServiceSG:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
@@ -62,18 +62,6 @@ Resources:
       MaxSize: '1'
       MinSize: '1'
       VPCZoneIdentifier: !Ref Subnets
-  MyCapacityProvider:
-    Type: AWS::ECS::CapacityProvider
-    Properties:
-        Name: MyCPProvider2342
-        AutoScalingGroupProvider:
-            AutoScalingGroupArn: !Sub "arn:aws:autoscaling:${AWS::Region}:${AWS::AccountId}:autoScalingGroup:${ASG}"
-            ManagedScaling:
-                MaximumScalingStepSize: 3
-                MinimumScalingStepSize: 1
-                Status: ENABLED
-                TargetCapacity: 100
-            ManagedTerminationProtection: DISABLED 
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties:
@@ -88,7 +76,7 @@ Resources:
           Fn::Base64: !Sub |
             #!/bin/bash
             echo ECS_CLUSTER=${ECSCluster} >> /etc/ecs/ecs.config
-  SSMRole:
+  ECSInstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -100,11 +88,12 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role
   EC2InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Roles:
-        - !Ref SSMRole
+        - !Ref ECSInstanceRole
 Outputs:
   ClusterName:
     Value: !Ref ECSCluster

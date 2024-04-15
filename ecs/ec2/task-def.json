@@ -1,0 +1,35 @@
+{
+  "family": "app",
+  "executionRoleArn": "arn:aws:iam::982383527471:role/EscEc2BasicServiceExecutionRole",
+  "taskRoleArn": "arn:aws:iam::982383527471:role/EcsEc2BasicTaskRole",
+  "networkMode": "bridge",
+  "cpu": "256",
+  "memory": "512",
+  "requiresCompatibilities": [ 
+    "EC2" 
+  ],
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "982383527471.dkr.ecr.ca-central-1.amazonaws.com/app",
+      "essential": true,
+      "portMappings": [
+        {
+          "name": "app",
+          "containerPort": 4567,
+          "hostPort": 80,
+          "protocol": "tcp", 
+          "appProtocol": "http"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "ecs-ec2-basic",
+            "awslogs-region": "ca-central-1",
+            "awslogs-stream-prefix": "app"
+        }
+      }
+    }
+  ]
+}

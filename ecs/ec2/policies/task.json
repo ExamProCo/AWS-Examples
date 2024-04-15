@@ -1,0 +1,7 @@
+
+ssmmessages:CreateControlChannel
+ssmmessages:CreateDataChannel
+ssmmessages:OpenControlChannel
+ssmmessages:OpenDataChannel
+
+arn:aws:iam:policy/CloudWatchLogsFullAccess

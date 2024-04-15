@@ -1,0 +1,10 @@
+{
+  "cluster": "ecs-ec2-basicECSCluster",
+  "launchType": "EC2",
+  "desiredCount": 1,
+  "enableECSManagedTags": true,
+  "enableExecuteCommand": true,
+  "propagateTags": "SERVICE",
+  "serviceName": "app",
+  "taskDefinition": "app"
+}
