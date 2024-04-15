@@ -26,8 +26,9 @@ sudo dpkg -i session-manager-plugin.deb
 ```sh
 aws ecs execute-command \
 --cluster ecs-fargate-basicECSCluster \
---task 428da138d4d14ed0a1d825e7f17018f2 \
+--task 33f675c3d6234eb98d1079cc1269e81e \
 --container app \
 --interactive \
 --command "/bin/sh"
 ```
+

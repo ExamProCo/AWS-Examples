@@ -1,0 +1,33 @@
+{
+  "cluster": "ecs-fargate-scECSCluster",
+  "launchType": "FARGATE",
+  "desiredCount": 1,
+  "enableECSManagedTags": true,
+  "enableExecuteCommand": true,
+  "propagateTags": "SERVICE",
+  "serviceName": "app2",
+  "taskDefinition": "app",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "securityGroups": [
+        "sg-0911754d1168c119c"
+      ],
+      "subnets": [
+        "subnet-0d8058cb02f147a86",
+        "subnet-0e0fd31733061237d"
+      ]
+    }
+  },
+  "serviceConnectConfiguration": {
+    "enabled": true,
+    "namespace": "basic",
+    "services": [
+      {
+        "portName": "app",
+        "discoveryName": "app2",
+        "clientAliases": [{"port": 4567}]
+      }
+    ]
+  }
+}

@@ -1,6 +1,10 @@
 # FROM python:3.13.0a6-slim-bookworm
 FROM 982383527471.dkr.ecr.ca-central-1.amazonaws.com/python:3.13.0a6-slim-bookworm
 
+# Added in a later video. 
+# You can omit this if you are building for the first.
+RUN apt-get update && apt-get install -y curl wget 
+
 # Inside Container
 # make a new folder inside container
 WORKDIR /app
@@ -10,7 +14,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 
 # This is just junk
-COPY Readme.md Readme.md
+#COPY Readme.md Readme.md
 
 # Inside Container
 # Install the python libraries used for the app

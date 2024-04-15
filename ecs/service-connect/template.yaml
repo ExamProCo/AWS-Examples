@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  - ECS EC2 Cluster
+Parameters:
+  #Backend ------
+  BackendPort:
+    Type: Number
+    Default: 4567
+  VpcId:
+    Type: String
+    Default: vpc-08f0ec02f7471b018
+  Subnets:
+    Type: 'List<AWS::EC2::Subnet::Id>'
+    Description: A list of subnets for the Auto Scaling group    
+    # ca-central-1a
+    # ca-central-1b
+    Default: "subnet-0d8058cb02f147a86,subnet-0e0fd31733061237d"
+Resources:
+  ECSCluster:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
+    Type: AWS::ECS::Cluster
+    Properties:
+      CapacityProviders:
+        - FARGATE
+      ClusterName: !Sub "${AWS::StackName}ECSCluster"
+      #ClusterSettings:
+      #  - Name: containerInsights
+      #    Value: enabled
+      Configuration:
+        ExecuteCommandConfiguration:
+          Logging: DEFAULT
+      ServiceConnectDefaults:
+        Namespace: basic
+  # We have to create this SG before the service so we can pass it to database SG
+  ServiceSG:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub "${AWS::StackName}ServSG"
+      GroupDescription: Security for ECS Services for Cruddur
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          CidrIp: 0.0.0.0/0
+          FromPort: !Ref BackendPort
+          ToPort: !Ref BackendPort
+          Description: OpenPort
+Outputs:
+  ClusterName:
+    Value: !Ref ECSCluster
+    Export:
+      Name: !Sub "${AWS::StackName}ClusterName"
+  ServiceSecurityGroupId:
+    Value: !GetAtt ServiceSG.GroupId
+    Export:
+      Name: !Sub "${AWS::StackName}ServiceSecurityGroupId"
