@@ -1,0 +1,116 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  The networking and cluster configuration to support fargate containers
+  - ECS ECS Cluster
+
+Parameters:
+  #Backend ------
+  InstanceType:
+    Type: String
+    Default: t3.medium
+  ECSAMI:
+    Type: String
+    Default: ami-079f772f5bb2f3779
+  BackendPort:
+    Type: Number
+    Default: 4567
+  VpcId:
+    Type: String
+    Default: vpc-08f0ec02f7471b018
+  Subnets:
+    Type: 'List<AWS::EC2::Subnet::Id>'
+    Description: A list of subnets for the Auto Scaling group    
+    # ca-central-1a
+    # ca-central-1b
+    Default: "subnet-0d8058cb02f147a86,subnet-0e0fd31733061237d"
+Resources:
+  ECSCluster:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub "${AWS::StackName}ECSCluster"
+      #ClusterSettings:
+      #  - Name: containerInsights
+      #    Value: enabled
+      Configuration:
+        ExecuteCommandConfiguration:
+          Logging: DEFAULT
+      #ServiceConnectDefaults:
+      #  Namespace: cruddur
+  # We have to create this SG before the service so we can pass it to database SG
+  ServiceSG:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub "${AWS::StackName}ServSG"
+      GroupDescription: Security for ECS Services for Cruddur
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          CidrIp: 0.0.0.0/0
+          FromPort: !Ref BackendPort
+          ToPort: !Ref BackendPort
+          Description: OpenPort
+  ASG:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      MaxSize: '1'
+      MinSize: '1'
+      VPCZoneIdentifier: !Ref Subnets
+  MyCapacityProvider:
+    Type: AWS::ECS::CapacityProvider
+    Properties:
+        Name: MyCPProvider2342
+        AutoScalingGroupProvider:
+            AutoScalingGroupArn: !Sub "arn:aws:autoscaling:${AWS::Region}:${AWS::AccountId}:autoScalingGroup:${ASG}"
+            ManagedScaling:
+                MaximumScalingStepSize: 3
+                MinimumScalingStepSize: 1
+                Status: ENABLED
+                TargetCapacity: 100
+            ManagedTerminationProtection: DISABLED 
+  LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        IamInstanceProfile:
+          Arn: !GetAtt EC2InstanceProfile.Arn
+        ImageId: !Ref ECSAMI
+        InstanceType: !Ref InstanceType
+        SecurityGroupIds:
+          - !Ref ServiceSG
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            echo ECS_CLUSTER=${ECSCluster} >> /etc/ecs/ecs.config
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+Outputs:
+  ClusterName:
+    Value: !Ref ECSCluster
+    Export:
+      Name: !Sub "${AWS::StackName}ClusterName"
+  ServiceSecurityGroupId:
+    Value: !GetAtt ServiceSG.GroupId
+    Export:
+      Name: !Sub "${AWS::StackName}ServiceSecurityGroupId"
