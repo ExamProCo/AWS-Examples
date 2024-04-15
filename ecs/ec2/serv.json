@@ -1,6 +1,6 @@
 {
   "cluster": "ecs-ec2-basicECSCluster",
-  "launchType": "EC2",
+  "launchType": "FARGATE",
   "desiredCount": 1,
   "enableECSManagedTags": true,
   "enableExecuteCommand": true,

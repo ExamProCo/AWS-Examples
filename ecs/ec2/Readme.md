@@ -18,5 +18,4 @@ aws ecs register-task-definition --cli-input-json file://task-def.json
 
 ## Deploy Container
 
-
 aws ecs create-service --cli-input-json file://serv.json
