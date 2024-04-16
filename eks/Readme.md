@@ -54,13 +54,14 @@ tar -xzf eksctl_Linux_amd64.tar.gz -C /tmp && rm eksctl_Linux_amd64.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
 rm eksctl_Linux_amd64.tar.gz
 ```
+
 ## Install Helm
 
 ```sh
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
-rm get_helm
+rm get_helm.sh
 ```
 
 ## Create IAM Role use EKS CTL
@@ -159,8 +160,6 @@ aws eks update-kubeconfig --name MyEKSCluster --region ca-central-1
 
 ## Install Load Balancer
 
-
-
 ```sh
 helm repo add eks https://aws.github.io/eks-charts
 helm repo update eks
@@ -172,3 +171,12 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 kubectl get deployment -n kube-system aws-load-balancer-controller
 
 ```
+
+# Debugging Load Balancer Wehbook
+
+kubectl get svc -n kube-system | grep aws-load-balancer-webhook-service
+kubectl get pods -n kube-system | grep aws-load-balancer
+
+# Deploy Game
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.7.1/docs/examples/2048/2048_full.yaml
