@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: "2010-09-09"
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t3.micro
+  VpcId:
+    Type: String
+    Default: vpc-08f0ec02f7471b018
+  ImageId:
+    Type: String
+    # ca-central-1 AMI
+    Default: ami-07413789aae50b0e0
+  SubnetId:
+    Type: String
+    Default: subnet-0e0fd31733061237d
+Resources:
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref ImageId
+      NetworkInterfaces:
+        - DeviceIndex: 0
+          SubnetId: !Ref SubnetId
+          AssociatePublicIpAddress: true
+          GroupSet:
+            - !GetAtt SG.GroupId
+          DeleteOnTermination: true
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          yum update -y
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+          echo "<html><body><h1>Hello from Apache on Amazon Linux 2!</h1></body></html>" > /var/www/html/index.html
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
