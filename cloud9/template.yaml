@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: "2010-09-09"
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t3.micro
+  ImageId:
+    Type: String
+    # ca-central-1 AMI
+    Default: ami-031a54947ff0e2af3
+  SubnetId:
+    Type: String
+    Default: subnet-0e0fd31733061237d
+Resources:
+  Cloud9:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties:
+      Name: MyTestEnv
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      Description: My Test Env
+      AutomaticStopTimeMinutes: 30
+      ConnectionType: CONNECT_SSM
+      SubnetId: !Ref SubnetId
