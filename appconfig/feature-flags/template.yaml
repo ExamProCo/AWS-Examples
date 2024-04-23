@@ -1,0 +1,103 @@
+AWSTemplateFormatVersion: "2010-09-09"
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t3.micro
+  VpcId:
+    Type: String
+    Default: vpc-0def22f6f3a56eada
+  ImageId:
+    Type: String
+    # us-east-1 AMI
+    Default: ami-04e5276ebb8451442
+  SubnetId:
+    Type: String
+    Default: subnet-055b0a794417ea14a
+Resources:
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref ImageId
+      NetworkInterfaces:
+        - DeviceIndex: 0
+          SubnetId: !Ref SubnetId
+          AssociatePublicIpAddress: true
+          GroupSet:
+            - !GetAtt SG.GroupId
+          DeleteOnTermination: true
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          yum update -y
+
+          # Install and Start AppConfig Agent
+          sudo yum install https://s3.amazonaws.com/aws-appconfig-downloads/aws-appconfig-agent/linux/x86_64/latest/aws-appconfig-agent.rpm -y
+          sudo aws configure set region us-east-1
+          sudo systemctl start aws-appconfig-agent
+
+          # Install Ruby and Requirements
+          sudo yum install -y gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel patch redhat-rpm-config -y
+          gem install bundler
+
+          # Download and Run Web-App
+          aws s3 cp s3://my-appconfig-example-234324/app.zip app.zip
+          unzip app.zip
+          sudo mv app /app
+          sudo chown ec2-user:ec2-user /app
+          sudo chown ec2-user:ec2-user /app/*
+          bundle install
+          rackup
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+  SSMRole:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+  AppConfigPolicy:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html
+    Type: 'AWS::IAM::RolePolicy'
+    Properties:
+      RoleName: !Ref SSMRole
+      PolicyName: AppConfigPolicyBasic
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - appconfig:StartConfigurationSession
+          - appconfig:GetLatestConfiguration
+          Resource: "*"
+        - Effect: Allow
+          Action:
+          - s3:GetObject
+          Resource: "arn:aws:s3:::my-appconfig-example-234324/app.zip"

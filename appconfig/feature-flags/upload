@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+MYPATH=/workspace/AWS-Examples/appconfig/feature-flags
+
+rm $MYPATH/app.zip
+zip -r app.zip $MYPATH/app
+aws s3 rm s3://my-appconfig-example-234324/app.zip --region us-east-1
+aws s3 cp $MYPATH/app.zip s3://my-appconfig-example-234324 --region us-east-1

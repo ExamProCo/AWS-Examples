@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem "sinatra" # web app
+gem 'pry' # debugger
+gem 'nokogiri' # xml parsing
+gem 'aws-sdk-appconfigdata'
+gem 'rackup'
