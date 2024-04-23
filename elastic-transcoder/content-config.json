@@ -1,0 +1,9 @@
+{
+  "Bucket":"videos.example1254124.com",
+  "Permissions":[{
+    "GranteeType": "Canonical",
+    "Grantee": "982383527471",
+    "Access": ["FullControl"]
+  }],
+  "StorageClass":"Standard"
+}
