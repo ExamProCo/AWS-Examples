@@ -9,6 +9,7 @@ GEM
     faye-websocket (0.11.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
+    power_assert (2.0.3)
     rexml (3.2.6)
     rubyzip (2.3.2)
     selenium-webdriver (4.19.0)
@@ -16,17 +17,19 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    test-unit (3.6.2)
+      power_assert
     websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
 
 PLATFORMS
-  ruby
-  x86_64-linux
+  arm64-darwin-21
 
 DEPENDENCIES
   appium_lib_core
+  test-unit
 
 BUNDLED WITH
-   2.5.9
+   2.4.10
