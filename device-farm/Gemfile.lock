@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    appium_lib_core (8.0.1)
+      faye-websocket (~> 0.11.0)
+      selenium-webdriver (~> 4.2)
+    base64 (0.2.0)
+    eventmachine (1.2.7)
+    faye-websocket (0.11.3)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    rexml (3.2.6)
+    rubyzip (2.3.2)
+    selenium-webdriver (4.19.0)
+      base64 (~> 0.2)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
+    websocket (1.2.10)
+    websocket-driver (0.7.6)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  appium_lib_core
+
+BUNDLED WITH
+   2.5.9
