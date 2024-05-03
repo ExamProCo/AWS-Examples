@@ -1,0 +1,16 @@
+{
+  "source": [
+    "aws.s3"
+  ],
+  "detail-type": [
+    "Object Created"
+  ],
+  "detail": {
+    "bucket": {
+      "name": ["sf-star-trek-131241"]
+    },
+    "object": {
+      "key": [{"prefix": "inputs/"}]
+    }
+  }
+}
