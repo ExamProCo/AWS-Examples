@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "== deploy route53 alias"
+
+STACK_NAME="route53-alias"
+
+# https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
+aws cloudformation deploy \
+--template-file template.yaml \
+--capabilities CAPABILITY_NAMED_IAM \
+--no-execute-changeset \
+--region us-east-1 \
+--stack-name $STACK_NAME

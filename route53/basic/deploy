@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "== deploy route53 servers"
+
+STACK_NAME="aws-route53-servers"
+
+# https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
+aws cloudformation deploy \
+--template-file template.yaml \
+--capabilities CAPABILITY_NAMED_IAM \
+--parameter-overrides ServerName="Server 1" \
+--no-execute-changeset \
+--region us-east-1 \
+--stack-name $STACK_NAME
