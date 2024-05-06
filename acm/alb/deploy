@@ -2,7 +2,7 @@
 
 echo "== deploy asg acm"
 
-STACK_NAME="asg-basic-acm"
+STACK_NAME="alb-basic-acm"
 
 # https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
 aws cloudformation deploy \
