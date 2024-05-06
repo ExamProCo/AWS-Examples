@@ -72,7 +72,7 @@ docker push 982383527471.dkr.ecr.ca-central-1.amazonaws.com/python:3.13.0a6-slim
  > Update the Dockerfile to reference our python image in ECR
 
 ```sh
-docker build -t  app ./app
+docker build -t  app .
 docker tag app:latest 982383527471.dkr.ecr.ca-central-1.amazonaws.com/app:latest
 docker push 982383527471.dkr.ecr.ca-central-1.amazonaws.com/app:latest
 ```
