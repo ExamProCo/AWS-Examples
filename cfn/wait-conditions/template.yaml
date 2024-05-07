@@ -1,0 +1,114 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: An ALB serving up a web server
+Parameters:
+  WebServerCapacity:
+    Type: Number
+    Default: 2
+  VpcId:
+    Type: String
+    Default: vpc-08f0ec02f7471b018
+  InstanceType:
+    Type: String
+    Default: t3.micro
+  ImageId:
+    Type: String
+    Default: ami-003c24b59bb839e19
+  Subnets:
+    Type: 'List<AWS::EC2::Subnet::Id>'
+    Description: A list of subnets for the Auto Scaling group    
+    # ca-central-1a
+    # ca-central-1b
+    Default: "subnet-0d8058cb02f147a86,subnet-0e0fd31733061237d"
+Resources:
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: SSMAndCloudFormationSignalPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ssm:*
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - cloudformation:SignalResource
+                Resource: '*'  # Consider restricting this to specific resources if possible
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+  LaunchTemplate:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      # LaunchTemplateName: MyLaunchTemplate
+      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html
+      LaunchTemplateData:
+        IamInstanceProfile:
+          Arn: !GetAtt EC2InstanceProfile.Arn
+        ImageId: !Ref ImageId
+        InstanceType: !Ref InstanceType
+        #SecurityGroups:
+        #  - !Ref SG
+        NetworkInterfaces:
+          # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
+          - DeviceIndex: 0
+            AssociatePublicIpAddress: true
+            Groups:
+              - !GetAtt SG.GroupId
+            DeleteOnTermination: true
+        UserData:
+          Fn::Base64:
+            !Sub |
+              #!/bin/bash
+              echo '${WaitHandle}' > /tmp/wait-handle.txt
+              /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} "${WaitHandle}"
+  ASG:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      MaxSize: '3'
+      MinSize: '1'
+      DesiredCapacity:
+        !Ref WebServerCapacity
+      VPCZoneIdentifier: !Ref Subnets
+  WaitHandle:
+    Type: AWS::CloudFormation::WaitConditionHandle
+  WaitCondition:
+    Type: AWS::CloudFormation::WaitCondition
+    DependsOn: ASG
+    Properties:
+      Handle: !Ref WaitHandle
+      Timeout: "300"
+      Count: !Ref WebServerCapacity
