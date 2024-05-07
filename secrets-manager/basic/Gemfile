@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# gem "rails"
+gem 'aws-sdk-secretsmanager'
+gem 'ox'
+gem 'pry'
