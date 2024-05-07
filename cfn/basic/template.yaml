@@ -1,0 +1,13 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Json Example with sample bucket
+Parameters:
+  BucketName:
+    Type: String
+    Default: json-example-cfn-325252
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Ref: BucketName
