@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Webserver RDS Postgres Instance with Secrets Manager
+Parameters:
+  VpcId:
+    Type: String
+  BackupRetentionPeriod:
+    Type: Number
+    Default: 0
+  InstanceClass:
+    Type: String
+    Default: db.t3.micro
+  EngineVersion:
+    Type: String
+    #  DB Proxy only supports very specific versions of Postgres
+    #  https://stackoverflow.com/questions/63084648/which-rds-db-instances-are-supported-for-db-proxy
+    Default: '15.4'
+  PubliclyAccessible:
+    Type: String
+    AllowedValues:
+      - true
+      - false
+    Default: false
+  DeletionProtection:
+    Type: String
+    AllowedValues:
+      - true
+      - false
+    Default: false
+  RdsDatabaseName:
+    Type: String
+    Default: "mydatabase"
+  RdsPort:
+    Type: Number
+    Default: 5432
+  Subnets:
+    Type: 'List<AWS::EC2::Subnet::Id>'
+    Description: A list of subnets for the Auto Scaling group    
+Resources:
+  RDSPostgresSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "Security Group for RDS Instance"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: !Ref RdsPort
+          ToPort: !Ref RdsPort
+          CidrIp: 0.0.0.0/0
+      VpcId: !Ref VpcId
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      #DBSubnetGroupName: !Sub "${AWS::StackName}DBSubnetGroup"
+      DBSubnetGroupDescription: "My DB Subnet Group"
+      SubnetIds: !Ref Subnets
+
+  RdsInstance:
+    Type: AWS::RDS::DBInstance
+    # TODO - Remember to change this back to snapshot for production!
+    # can't use !Ref on DeletionPolicy and Conditions sucks
+    DeletionPolicy: 'Delete'
+    UpdateReplacePolicy: 'Delete'
+    Properties:
+      MasterUsername:
+        Fn::Sub: "{{resolve:secretsmanager:${MySecret}::username}}"
+      MasterUserPassword:
+        Fn::Sub: "{{resolve:secretsmanager:${MySecret}::password}}"
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      AllocatedStorage: '20'
+      AllowMajorVersionUpgrade: true
+      AutoMinorVersionUpgrade: true
+      # This should be turned off When using AuthIAM on the Proxy.
+      Port: !Ref RdsPort
+      EnableIAMDatabaseAuthentication: false
+      BackupRetentionPeriod: !Ref BackupRetentionPeriod
+      DBInstanceClass: !Ref InstanceClass
+      DBName: !Ref RdsDatabaseName
+      Engine: postgres
+      DeletionProtection: !Ref DeletionProtection
+      EngineVersion: !Ref EngineVersion
+      PubliclyAccessible: !Ref PubliclyAccessible
+      VPCSecurityGroups:
+        - !GetAtt RDSPostgresSG.GroupId
+  MySecret:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
+    Type: 'AWS::SecretsManager::Secret'
+    Properties:
+      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "testuser"}'
+        GenerateStringKey: "password"
+        PasswordLength: 30
+        ExcludeCharacters: '"@/\'
+  DbAttachment:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
+    Type: AWS::SecretsManager::SecretTargetAttachment
+    Properties:
+      SecretId: !Ref MySecret
+      TargetId: !Ref RdsInstance
+      TargetType: AWS::RDS::DBInstance
+Outputs:
+  StackName:
+    Value: !Ref AWS::StackName
+  RdsPort:
+    Value: !Ref RdsPort
+    Export:
+      Name: !Sub ${AWS::StackName}RdsPort
+  RdsDatabaseName:
+    Value: !Ref RdsDatabaseName
+    Export:
+      Name: !Sub ${AWS::StackName}RdsDatabaseName
