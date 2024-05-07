@@ -1,0 +1,27 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create in the order of 2, 3 and then 1
+Resources:
+  MyEC2Instance1: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
+  MyEC2Instance2: 
+    Type: AWS::EC2::Instance
+    DependsOn: MyEC2Instance1
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
+  MyEC2Instance3: 
+    Type: AWS::EC2::Instance
+    DependsOn: MyEC2Instance2
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
+  MyEC2Instance4: 
+    Type: AWS::EC2::Instance
+    DependsOn: MyEC2Instance3
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
