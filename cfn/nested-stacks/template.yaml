@@ -1,0 +1,8 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  MyStack:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://my-nested-stack-templates-233252.s3.ca-central-1.amazonaws.com/s3_bucket.template
