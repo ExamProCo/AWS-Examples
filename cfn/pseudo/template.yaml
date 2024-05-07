@@ -1,0 +1,20 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  BucketName:
+    Type: String
+    Default: example-cfn-32523552
+Resources:
+  S3Bucket:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Ref: BucketName
+      Tags:
+        - Key: Region
+          Value: !Ref AWS::Region
+        - Key: StackName
+          Value: !Ref AWS::StackName
+        - Key: AccountId
+          Value: !Ref AWS::AccountId
