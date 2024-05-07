@@ -1,0 +1,47 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create in the order of 2, 3 and then 1
+Parameters:
+  Subnets: 
+    Description: Subnet IDs
+    Type: "List<AWS::EC2::Subnet::Id>"
+    Default: "subnet-0d8058cb02f147a86,subnet-0e0fd31733061237d"
+Resources:
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
+Outputs:
+  InstanceId:
+    Description: InstanceId
+    Value: 
+      !Ref MyEC2Instance
+      # Fn::Ref MyEC2Instance
+    Export:
+      Name: InstanceId
+  VpcId:
+    Description: VpcId
+    Value: 
+      !GetAtt MyEC2Instance.VpcId
+      # Fn::GetAtt MyEC2Instance
+  VPCArn:
+    Description: VpcId
+    Value: 
+      !Sub 
+        - 'arn:aws:ec2:${REGION}:${ACCOUNT_ID}:vpc/${VPC_ID}'
+        - ACCOUNT_ID: !Ref AWS::AccountId
+          REGION: !Ref AWS::Region
+          VPC_ID: !GetAtt MyEC2Instance.VpcId
+  JoinsSubnets:
+    Description: JoinsSubnets
+    Value: 
+      !Join
+        - ','
+        - !Ref Subnets
+  #Splits:
+  #  Description: Splits
+  #  Value: 
+  #    !Split [ "," , "a,b,c" ]
+  #  Export:
+  #    Name: Splits
