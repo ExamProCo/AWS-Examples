@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "== deploy secrets manager mask"
+
+STACK_NAME="aws-sm-mask"
+
+# https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
+aws cloudformation deploy \
+--template-file template.yaml \
+--capabilities CAPABILITY_NAMED_IAM \
+--parameter-overrides MyPassword="!654321gnitesT" \
+--no-execute-changeset \
+--region ca-central-1 \
+--stack-name $STACK_NAME
