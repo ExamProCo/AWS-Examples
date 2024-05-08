@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  BucketName:
+    Type: String
+    Default: "chup-example-2532343"
+  ImageId:
+    Type: String
+    Default: ami-12345678
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: t3.micro
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+
+          # Configure cfn-hup
+          /opt/aws/bin/cfn-init -v \
+            --stack ${AWS::StackName} \
+            --resource MyInstance \
+            --region ${AWS::Region}
+
+          # Start the cfn-hup daemon
+          /opt/aws/bin/cfn-hup || error_exit "Failed to start cfn-hup"
+      Metadata:
+        AWS::CloudFormation::Init:
+          config:
+            files:
+              "/etc/cfn/cfn-hup.conf":
+                content: !Sub |
+                  [main]
+                  stack=${AWS::StackId}
+                  region=${AWS::Region}
+                mode: "000400"
+                owner: root
+                group: root
+              "/opt/aws/bin/upload-to-s3.sh":
+                content: !Sub |
+                  #!/bin/bash
+
+                  FTIME=$(date +%s)
+                  FILE_NAME="$FTIME.txt"
+                  FILE_PATH="/tmp/file-$FILE_NAME"
+                  echo "$FTIME" > $FILE_PATH
+
+                  aws s3 cp "$FILE_PATH "s3://${BucketName}/$FILE_NAME"
+                mode: "000400"
+                owner: ec2-user
+                group: ec2-user
+              "/etc/cfn/hooks.d/my-hook.conf":
+                content: !Sub |
+                  [metadata-change]
+                  triggers=post.update
+                  path=Resources.MyEC2Instance.Metadata.AWS::CloudFormation::Init
+                  action=/opt/aws/bin/upload-to-s3.sh
+                  runas=root
+                mode: "000400"
+                owner: root
+                group: root
