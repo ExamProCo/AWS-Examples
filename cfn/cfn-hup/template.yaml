@@ -6,16 +6,37 @@ Parameters:
   ImageId:
     Type: String
     Default: ami-07117708253546063
+  InstanceType:
+    Type: String
+    Default: t3.micro
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref BucketName
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref ImageId
-      InstanceType: t3.micro
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref EC2InstanceProfile
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
