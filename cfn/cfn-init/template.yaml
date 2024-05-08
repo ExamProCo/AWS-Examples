@@ -1,0 +1,95 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Launch a simple EC2 for use with testing VPCs
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+  VpcId:
+    Type: String
+    Default: vpc-03181823a2da0addd
+  ImageId:
+    Type: String
+    Default: ami-003c24b59bb839e19
+  SubnetId:
+    Type: String
+    Default: subnet-0584791a9829bc51c
+Resources:
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref ImageId
+      #SubnetId: !Ref SubnetId
+      #SecurityGroupIds:
+      #  - !GetAtt SG.GroupId
+      NetworkInterfaces:
+        - DeviceIndex: 0
+          SubnetId: !Ref SubnetId
+          AssociatePublicIpAddress: true
+          GroupSet:
+            - !GetAtt SG.GroupId
+          DeleteOnTermination: true
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          # Execute the helper script
+          /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource WebServerInstance --region ${AWS::Region}
+      # CloudFormation Init metadata
+      Metadata:
+        AWS::CloudFormation::Init:
+          config:
+            packages:
+              yum:
+                httpd: []  # Installs Apache HTTP Server
+            files:
+              /var/www/html/index.html:
+                content: |
+                  <html>
+                  <head>
+                    <title>Welcome to My Website</title>
+                  </head>
+                  <body>
+                    <h1>Hello, World from CloudFormation!</h1>
+                  </body>
+                  </html>
+                mode: '000644'
+                owner: apache
+                group: apache
+            services:
+              sysvinit:
+                httpd:
+                  enabled: true
+                  ensureRunning: true

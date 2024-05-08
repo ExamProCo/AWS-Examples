@@ -1,4 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Description: EC2 instance with a role that allows uploading files to an S3 bucket
+
 Parameters:
   BucketName:
     Type: String
@@ -9,11 +11,13 @@ Parameters:
   InstanceType:
     Type: String
     Default: t3.micro
+
 Resources:
   MyBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref BucketName
+
   SSMRole:
     Type: AWS::IAM::Role
     Properties:
@@ -26,11 +30,23 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: AccessS3BucketPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                Resource: !Sub "arn:aws:s3:::${BucketName}/*"
+
   EC2InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
       Roles:
         - !Ref SSMRole
+
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
@@ -49,6 +65,7 @@ Resources:
 
           # Start the cfn-hup daemon
           /opt/aws/bin/cfn-hup || error_exit "Failed to start cfn-hup"
+
     Metadata:
       AWS::CloudFormation::Init:
         config:
@@ -67,13 +84,13 @@ Resources:
 
                 FTIME=$(date +%s)
                 FILE_NAME="$FTIME.txt"
-                FILE_PATH="/tmp/file-$FILE_NAME"
+                FILE_PATH="/tmp/$FILE_NAME"
                 echo "$FTIME" > $FILE_PATH
 
-                aws s3 cp "$FILE_PATH "s3://${BucketName}/$FILE_NAME"
-              mode: "000400"
-              owner: ec2-user
-              group: ec2-user
+                aws s3 cp "$FILE_PATH" "s3://${BucketName}/$FILE_NAME"
+              mode: "000500"
+              owner: root
+              group: root
             "/etc/cfn/hooks.d/my-hook.conf":
               content: !Sub |
                 [metadata-change]
