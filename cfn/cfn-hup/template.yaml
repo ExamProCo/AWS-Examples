@@ -57,7 +57,7 @@ Resources:
               content: !Sub |
                 [metadata-change]
                 triggers=post.update
-                path=Resources.MyEC2Instance.Metadata.AWS::CloudFormation::Init
+                path=Resources.MyInstance.Metadata.AWS::CloudFormation::Init
                 action=/opt/aws/bin/upload-to-s3.sh
                 runas=root
               mode: "000400"
