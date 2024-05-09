@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-STACK_NAME="stack-update"
+STACK_NAME="cfn-import"
 
 # https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
 aws cloudformation deploy \
