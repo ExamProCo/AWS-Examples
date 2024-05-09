@@ -1,0 +1,17 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  BucketStack:
+    Type: String
+    Default: cross-stack-bucket
+Resources:
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: "ami-07117708253546063"
+      InstanceType: t3.micro
+      Tags:
+        - Key: AssociatedBucket
+          Value: 
+            Fn::ImportValue:
+              !Sub "${BucketStack}BucketName"

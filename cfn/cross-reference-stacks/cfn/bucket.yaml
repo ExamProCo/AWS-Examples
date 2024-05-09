@@ -1,0 +1,16 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  S3Bucket:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html
+    Type: AWS::S3::Bucket
+    Properties:
+      Tags:
+        - Key: Hello
+          Value: World
+Outputs:
+  BucketName:
+    Description: BucketName
+    Value: !Ref S3Bucket
+    Export:
+      Name: !Sub ${AWS::StackName}BucketName
