@@ -68,8 +68,8 @@ brew install python@3.11
 
 ```sh
 pip install virtualenv
-virtualenv -p python3.11 ./myenv
-source myenv/bin/activate
+virtualenv -p python3.11 ~/myenv
+source ~/myenv/bin/activate
 python --version
 pip install awsebcli --upgrade
 ```
@@ -79,4 +79,29 @@ pip install awsebcli --upgrade
 git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
 python ./aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
 echo 'export PATH="/home/gitpod/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+```
+
+## Initialize EB
+
+```
+eb init
+```
+
+
+## Set Codesource
+
+```sh
+eb codesource
+```
+
+## Zip Directory
+
+```sh
+zip -r app.zip app
+```
+
+# Unzip Directory
+
+```sh
+ unzip app.zip 
 ```
