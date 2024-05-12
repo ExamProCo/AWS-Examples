@@ -57,3 +57,26 @@ psql postgresql://postgres:password@localhost:5432/study-sync
 ```sql
 SELECT * FROM questions;
 ```
+
+## Install EB CLI
+
+> EB at the the time of this video only works in 3.11 and not 3.12 so we had to install python 3.11 and create a virtualenv
+
+```sh
+brew install python@3.11
+```
+
+```sh
+pip install virtualenv
+virtualenv -p python3.11 ./myenv
+source myenv/bin/activate
+python --version
+pip install awsebcli --upgrade
+```
+
+## Manual Install if you don't have to do the virtual enviroment (optional)
+```sh
+git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
+python ./aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
+echo 'export PATH="/home/gitpod/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+```
