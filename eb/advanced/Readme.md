@@ -105,3 +105,24 @@ zip -r app.zip app
 ```sh
  unzip app.zip 
 ```
+
+## Make Config Var for Eb Extensions
+
+mkdir .ebextensions
+touch .ebextensions/001_envar.config
+
+## Create IAM Profile
+
+
+```sh
+aws iam create-instance-profile --instance-profile-name StudySyncInstanceProfile
+aws iam add-role-to-instance-profile \
+    --role-name AWSElasticBeanstalkWebTierRole  \
+    --instance-profile-name StudySyncInstanceProfile
+```
+
+## Importing into RDS
+
+
+psql mydatabase < sql/schema.sql -h rds-basic-rdsinstance-uzdzjcuz1opq.cv1x0r3utzcm.ca-central-1.rds.amazonaws.com -U postgres 
+psql mydatabase < sql/seed.sql -h rds-basic-rdsinstance-uzdzjcuz1opq.cv1x0r3utzcm.ca-central-1.rds.amazonaws.com -U postgres 
