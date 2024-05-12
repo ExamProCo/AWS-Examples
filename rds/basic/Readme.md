@@ -6,3 +6,4 @@ aws secretsmanager create-secret \
 --description "My rds password" \
 --secret-string "{\"password\":\"mypassword\"}"
 ``` 
+
