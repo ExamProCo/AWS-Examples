@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+
+#set -e
+#set -o xtrace
+
+# Variables
+LOG_GROUP_NAME="/example/basic/app2"
+LOG_STREAM_NAME="1717092044"
+LOG_FILE="web_server_logs.log"
+
+# Function to send log events
+send_log_events() {
+  local timestamp=$1
+  local message=$2
+  echo $message > /dev/tty
+  
+  # Escape the double quotes in the JSON string
+  #escaped_json=$(echo "$log_events" | sed 's/"/\\"/g')
+
+  #echo "aws logs put-log-events --log-group-name $LOG_GROUP_NAME --log-stream-name $LOG_STREAM_NAME --log-events \"$escaped_json\" --query nextSequenceToken" > /dev/tty
+  #echo $log_events > /dev/tty
+
+  # Create a JSON object and add it to an array using jq
+  json=$(jq -c -n --arg ts "$timestamp" --arg msg "$message" '[{timestamp: $ts, message: $msg}]')
+
+  # Ensure JSON string is safely handled
+  json=$(echo "$json" | sed 's/"/\\"/g')
+
+  if [ "$SEQUENCE_TOKEN" == "None" ]; then
+    SEQUENCE_TOKEN=$(aws logs put-log-events \
+    --log-group-name $LOG_GROUP_NAME \
+    --log-stream-name $LOG_STREAM_NAME  \
+    --log-events "$json" \
+    --query nextSequenceToken \
+    --output text)
+  else
+    SEQUENCE_TOKEN=$(aws logs put-log-events \
+    --log-group-name $LOG_GROUP_NAME \
+    --log-stream-name $LOG_STREAM_NAME \
+    --log-events "$json" \
+    --sequence-token $SEQUENCE_TOKEN \
+    --query nextSequenceToken \
+    --output text)
+  fi
+}
+
+convert_to_iso() {
+    # Input date string
+    local date_str="$1"
+
+    # Extract parts of the date
+    local day=$(echo $date_str | awk -F'[/: ]' '{print $1}')
+    local month=$(echo $date_str | awk -F'[/: ]' '{print $2}')
+    local year=$(echo $date_str | awk -F'[/: ]' '{print $3}')
+    local time=$(echo $date_str | awk -F'[/: ]' '{print $4 ":" $5 ":" $6}')
+    local timezone=$(echo $date_str | awk -F'+' '{print $2}')
+    # awk -F'[/]' "30/May/2024:07:39:43 +0000"
+    # echo -e "Day: $day" > /dev/tty
+    # echo -e "Month: $month" > /dev/tty
+    # echo -e "Year: $year" > /dev/tty
+    # echo -e "Time: $time" > /dev/tty
+    # echo -e "Timezone: $timezone" > /dev/tty
+
+    # Convert month to a number
+    case $month in
+        Jan) month_num="01" ;;
+        Feb) month_num="02" ;;
+        Mar) month_num="03" ;;
+        Apr) month_num="04" ;;
+        May) month_num="05" ;;
+        Jun) month_num="06" ;;
+        Jul) month_num="07" ;;
+        Aug) month_num="08" ;;
+        Sep) month_num="09" ;;
+        Oct) month_num="10" ;;
+        Nov) month_num="11" ;;
+        Dec) month_num="12" ;;
+    esac
+
+    # Format the date as ISO 8601
+    local iso_date="${year}-${month_num}-${day}T${time} +${timezone}"
+
+    # Print the result
+    echo $iso_date
+}
+
+# Read log file and send logs to CloudWatch
+while IFS= read -r line; do
+  #echo $line
+  original_datetime=$(echo $line | awk '{print $4 " " $5}' | sed 's/\[//;s/\]//')
+  #echo $original_datetime
+  iso_datetime=$(convert_to_iso "$original_datetime")
+  #echo $iso_datetime
+  timestamp=$(date --date="$iso_datetime" +%s%3N)
+  send_log_events $timestamp, "$line"
+done < $LOG_FILE
+
+echo "Logs have been sent to CloudWatch Log Stream $LOG_STREAM_NAME in Log Group $LOG_GROUP_NAME"
