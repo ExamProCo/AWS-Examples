@@ -2,23 +2,20 @@ require 'aws-sdk-cloudwatchlogs'
 require 'time'
 require 'pry'
 
-class PutLogs
+class PutLogsJson
   def self.run log_group_name:, log_stream_name:, log_file_path:
     client = Aws::CloudWatchLogs::Client.new
-    PutLogs.create_log_group(client,log_group_name)
-    PutLogs.create_log_stream(client,log_group_name,log_stream_name)
-    log_events = PutLogs.parse_elf_log_file log_file_path
-
-    puts log_events
-
+    PutLogsJson.create_log_group(client,log_group_name)
+    PutLogsJson.create_log_stream(client,log_group_name,log_stream_name)
+    log_events = PutLogsJson.parse_json_log_file log_file_path
     raise "No log events to send." if log_events.empty?
 
-    sequence_token = PutLogs.init_log(
+    sequence_token = PutLogsJson.init_log(
       client: client,
       log_group_name: log_group_name, 
       log_stream_name: log_stream_name
     )
-    PutLogs.log(
+    PutLogsJson.log(
       client: client,
       log_group_name: log_group_name, 
       log_stream_name: log_stream_name, 
@@ -43,19 +40,17 @@ class PutLogs
     end
   end # self.create_log_stream
 
-  def self.parse_elf_log_file log_file_path
+  def self.parse_json_log_file log_file_path
     log_events = []
     File.foreach(log_file_path) do |line|
-      if line =~ /\[(.*?)\] "(.*?)"/
-        timestamp = Time.strptime($1, "%d/%b/%Y:%H:%M:%S %z")
-        timestamp = timestamp.to_i * 1000 # Convert to milliseconds
-        message = line.strip
-        log_events.push({ 
-          timestamp: timestamp, 
-          message: message 
-        })
-      end
-    end
+      json = JSON.parse line
+      timestamp = Time.strptime(json['timestamp'], "%d/%b/%Y:%H:%M:%S %z")
+      timestamp = timestamp.to_i * 1000 # Convert to milliseconds
+      log_events.push({
+        timestamp: timestamp,
+        message: line # // stringify json
+      })
+    end # File.foreach
     return log_events
   end # self.parse_elf_log_file
 
@@ -78,6 +73,7 @@ class PutLogs
 
   def self.log client:, log_group_name:, log_stream_name:, log_events:, sequence_token:
     begin
+      #binding.pry
       response = client.put_log_events({
         log_group_name: log_group_name,
         log_stream_name: log_stream_name,
@@ -88,6 +84,8 @@ class PutLogs
     rescue Aws::CloudWatchLogs::Errors::ServiceError => e
       puts "Error sending log events: #{e.message}"
       exit 1
+    rescue => e
+      puts "Error: #{e.message}"
     end
   end
 

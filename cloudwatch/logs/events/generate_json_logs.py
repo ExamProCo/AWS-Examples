@@ -1,3 +1,4 @@
+import json
 import random
 import time
 from datetime import datetime, timedelta
@@ -62,10 +63,20 @@ def generate_log_entry():
     referrer = "-"  # Common placeholder for missing data
     user_agent = generate_user_agent()
 
-    log_entry = (
-        f'{ip} {user_identifier} {user_id} [{timestamp}] "{method} {path} {protocol}" '
-        f'{status} {bytes_transferred} "{referrer}" "{user_agent}"'
-    )
+    log_entry = {
+      'ip':  ip,
+      'user_identifier': user_identifier,
+      'user_id': user_id,
+      'timestamp': timestamp,
+      'method': method,
+      'path': path,
+      'protocol': protocol,
+      'status': status,
+      'bytes_transferred': bytes_transferred,
+      'referrer': referrer,
+      'user_agent': user_agent
+
+    }
     return log_entry
 
 # Generate 100 log entries
@@ -73,4 +84,4 @@ log_entries = [generate_log_entry() for _ in range(100)]
 
 # Print the log entries
 for entry in log_entries:
-    print(entry)
+  print(json.dumps(entry, separators=(',', ':')))

@@ -2,7 +2,7 @@ require_relative 'put_logs.rb'
 
 task :log do
   PutLogs.run(
-    log_group_name: '/example/basic/app3', 
+    log_group_name: '/example/basic/app', 
     log_stream_name: Time.now.to_i.to_s, 
     log_file_path: 'web_server_logs.log'
   )

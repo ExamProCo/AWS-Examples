@@ -1,0 +1,23 @@
+require_relative 'put_logs_json.rb'
+require 'json'
+
+task :log do
+  PutLogsJson.run(
+    log_group_name: '/example/events/json/app', 
+    log_stream_name: Time.now.to_i.to_s, 
+    log_file_path: 'web_server_logs.json'
+  )
+end
+
+task :range do
+  log_file_path =  'web_server_logs.json'
+  lines = File.readlines(log_file_path) 
+  json_first = JSON.parse(lines.first)
+  json_last = JSON.parse(lines.last)
+
+  timestamp_first = Time.strptime(json_first['timestamp'], "%d/%b/%Y:%H:%M:%S %z").to_i * 1000
+  timestamp_last = Time.strptime(json_last['timestamp'], "%d/%b/%Y:%H:%M:%S %z").to_i * 1000
+
+  puts "start-time #{timestamp_first}"
+  puts "end-time #{timestamp_last}"
+end
