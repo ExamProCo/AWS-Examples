@@ -1,6 +1,9 @@
+import os
 import random
 import time
 from datetime import datetime, timedelta
+
+number_of_entries = int(os.environ["NENTRIES"]) or 100
 
 # Generate a random IP address
 def generate_ip():
@@ -69,7 +72,7 @@ def generate_log_entry():
     return log_entry
 
 # Generate 100 log entries
-log_entries = [generate_log_entry() for _ in range(100)]
+log_entries = [generate_log_entry() for _ in range(number_of_entries)]
 
 # Print the log entries
 for entry in log_entries:

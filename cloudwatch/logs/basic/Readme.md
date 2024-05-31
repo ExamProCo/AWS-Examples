@@ -1,7 +1,7 @@
 ## Create Logging Data
 
 ```sh
-python generate_logs.py > web_server_logs.log
+NENTRIES=10 python generate_logs.py > web_server_logs.log
 ```
 
 
