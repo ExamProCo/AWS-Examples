@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+MYPATH=/workspace/AWS-Examples/cloudwatch/logs/agent/
+
+BUCKET=cw-agent-app-325252
+REGION=ca-central-1
+
+rm $MYPATH/app.zip
+
+pushd $MYPATH
+zip -r app.zip ./shogun/
+popd
+
+aws s3 rm s3://$BUCKET/app.zip --region $REGION
+aws s3 cp $MYPATH/app.zip s3://$BUCKET --region $REGION
+rm $MYPATH/app.zip
