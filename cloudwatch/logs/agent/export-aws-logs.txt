@@ -1,0 +1,361 @@
+2024-06-05T20:14:58.030Z I, [2024-06-05T20:14:56.763089 #27995]  INFO -- : [273960d4-faa7-4656-83c4-84fc71f2517e] Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:58.030Z I, [2024-06-05T20:14:57.910092 #27995]  INFO -- : [af1e8789-bc3c-4e0e-937a-d0cd8694580a] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:57 +0000
+2024-06-05T20:14:58.030Z I, [2024-06-05T20:14:57.910639 #27995]  INFO -- : [af1e8789-bc3c-4e0e-937a-d0cd8694580a] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:58.030Z I, [2024-06-05T20:14:57.910673 #27995]  INFO -- : [af1e8789-bc3c-4e0e-937a-d0cd8694580a]   Parameters: {"application"=>{}}
+2024-06-05T20:14:58.281Z I, [2024-06-05T20:14:57.910930 #27995]  INFO -- : [af1e8789-bc3c-4e0e-937a-d0cd8694580a] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:58.281Z I, [2024-06-05T20:14:58.156972 #27995]  INFO -- : [f46bc088-bc17-4728-b893-deea8a5fed8a] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:58 +0000
+2024-06-05T20:14:58.281Z I, [2024-06-05T20:14:58.157525 #27995]  INFO -- : [f46bc088-bc17-4728-b893-deea8a5fed8a] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:58.281Z I, [2024-06-05T20:14:58.157559 #27995]  INFO -- : [f46bc088-bc17-4728-b893-deea8a5fed8a]   Parameters: {"application"=>{}}
+2024-06-05T20:14:59.033Z I, [2024-06-05T20:14:58.157824 #27995]  INFO -- : [f46bc088-bc17-4728-b893-deea8a5fed8a] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:59.033Z I, [2024-06-05T20:14:58.804106 #27995]  INFO -- : [466a7dc0-4737-4069-b959-9e4e993c3d71] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:58 +0000
+2024-06-05T20:14:59.033Z I, [2024-06-05T20:14:58.804710 #27995]  INFO -- : [466a7dc0-4737-4069-b959-9e4e993c3d71] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:59.033Z I, [2024-06-05T20:14:58.804751 #27995]  INFO -- : [466a7dc0-4737-4069-b959-9e4e993c3d71]   Parameters: {"application"=>{}}
+2024-06-05T20:14:59.283Z I, [2024-06-05T20:14:58.805023 #27995]  INFO -- : [466a7dc0-4737-4069-b959-9e4e993c3d71] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:59.283Z I, [2024-06-05T20:14:59.052837 #27995]  INFO -- : [a9fe69f6-f535-4147-b649-363833f6a701] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:59 +0000
+2024-06-05T20:14:59.283Z I, [2024-06-05T20:14:59.053404 #27995]  INFO -- : [a9fe69f6-f535-4147-b649-363833f6a701] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:59.283Z I, [2024-06-05T20:14:59.053438 #27995]  INFO -- : [a9fe69f6-f535-4147-b649-363833f6a701]   Parameters: {"application"=>{}}
+2024-06-05T20:15:00.289Z I, [2024-06-05T20:14:59.053705 #27995]  INFO -- : [a9fe69f6-f535-4147-b649-363833f6a701] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:00.289Z I, [2024-06-05T20:15:00.204360 #27995]  INFO -- : [76f7034b-3e34-438d-bf7b-bca9ca62d97c] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:15:00 +0000
+2024-06-05T20:15:00.289Z I, [2024-06-05T20:15:00.205139 #27995]  INFO -- : [76f7034b-3e34-438d-bf7b-bca9ca62d97c] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:15:00.289Z I, [2024-06-05T20:15:00.205180 #27995]  INFO -- : [76f7034b-3e34-438d-bf7b-bca9ca62d97c]   Parameters: {"application"=>{}}
+2024-06-05T20:15:00.540Z I, [2024-06-05T20:15:00.205449 #27995]  INFO -- : [76f7034b-3e34-438d-bf7b-bca9ca62d97c] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:00.540Z I, [2024-06-05T20:15:00.452718 #27995]  INFO -- : [d7c209c2-cd6e-41a9-8897-5da53f9077db] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:15:00 +0000
+2024-06-05T20:15:00.540Z I, [2024-06-05T20:15:00.453417 #27995]  INFO -- : [d7c209c2-cd6e-41a9-8897-5da53f9077db] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:15:00.540Z I, [2024-06-05T20:15:00.453459 #27995]  INFO -- : [d7c209c2-cd6e-41a9-8897-5da53f9077db]   Parameters: {"application"=>{}}
+2024-06-05T20:15:01.792Z I, [2024-06-05T20:15:00.453733 #27995]  INFO -- : [d7c209c2-cd6e-41a9-8897-5da53f9077db] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:01.792Z I, [2024-06-05T20:15:01.607383 #27995]  INFO -- : [4512ea33-bef3-47e2-bdaf-32b4c29167f9] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:15:01 +0000
+2024-06-05T20:15:01.792Z I, [2024-06-05T20:15:01.608003 #27995]  INFO -- : [4512ea33-bef3-47e2-bdaf-32b4c29167f9] Processing by ApplicationController#ishido as */*
+2024-06-05T20:15:01.792Z I, [2024-06-05T20:15:01.608054 #27995]  INFO -- : [4512ea33-bef3-47e2-bdaf-32b4c29167f9]   Parameters: {"application"=>{}}
+2024-06-05T20:15:02.043Z I, [2024-06-05T20:15:01.608317 #27995]  INFO -- : [4512ea33-bef3-47e2-bdaf-32b4c29167f9] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:02.043Z I, [2024-06-05T20:15:01.855867 #27995]  INFO -- : [abdb8b63-45eb-4e2f-8aab-8bda81f81fb0] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:15:01 +0000
+2024-06-05T20:15:02.043Z I, [2024-06-05T20:15:01.856552 #27995]  INFO -- : [abdb8b63-45eb-4e2f-8aab-8bda81f81fb0] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:15:02.043Z I, [2024-06-05T20:15:01.856597 #27995]  INFO -- : [abdb8b63-45eb-4e2f-8aab-8bda81f81fb0]   Parameters: {"application"=>{}}
+2024-06-05T20:15:02.293Z I, [2024-06-05T20:15:01.856872 #27995]  INFO -- : [abdb8b63-45eb-4e2f-8aab-8bda81f81fb0] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:02.293Z I, [2024-06-05T20:15:02.103890 #27995]  INFO -- : [b25209a9-8ae8-4cdb-8a6c-a6d73fe6a8dd] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:15:02 +0000
+2024-06-05T20:15:02.293Z I, [2024-06-05T20:15:02.106422 #27995]  INFO -- : [b25209a9-8ae8-4cdb-8a6c-a6d73fe6a8dd] Processing by ApplicationController#omi as */*
+2024-06-05T20:15:02.293Z I, [2024-06-05T20:15:02.106501 #27995]  INFO -- : [b25209a9-8ae8-4cdb-8a6c-a6d73fe6a8dd]   Parameters: {"application"=>{}}
+2024-06-05T20:10:46.848Z === puma startup: 2024-06-05 20:10:41 +0000 ===
+2024-06-05T20:14:42.742Z I, [2024-06-05T20:14:41.459128 #27995]  INFO -- : [da982c88-13b4-4e46-9165-8ebb22437715] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:42.742Z I, [2024-06-05T20:14:42.607564 #27995]  INFO -- : [20a124c9-6a69-411b-97ef-a6ddbadbbb69] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:42 +0000
+2024-06-05T20:14:42.742Z I, [2024-06-05T20:14:42.608176 #27995]  INFO -- : [20a124c9-6a69-411b-97ef-a6ddbadbbb69] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:42.742Z I, [2024-06-05T20:14:42.608214 #27995]  INFO -- : [20a124c9-6a69-411b-97ef-a6ddbadbbb69]   Parameters: {"application"=>{}}
+2024-06-05T20:14:42.989Z I, [2024-06-05T20:14:42.608493 #27995]  INFO -- : [20a124c9-6a69-411b-97ef-a6ddbadbbb69] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:42.989Z I, [2024-06-05T20:14:42.857013 #27995]  INFO -- : [0e5055c9-dee6-4ae4-af45-a3edf729d2ac] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:42 +0000
+2024-06-05T20:14:42.989Z I, [2024-06-05T20:14:42.857735 #27995]  INFO -- : [0e5055c9-dee6-4ae4-af45-a3edf729d2ac] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:42.989Z I, [2024-06-05T20:14:42.857774 #27995]  INFO -- : [0e5055c9-dee6-4ae4-af45-a3edf729d2ac]   Parameters: {"application"=>{}}
+2024-06-05T20:14:44.243Z I, [2024-06-05T20:14:42.858063 #27995]  INFO -- : [0e5055c9-dee6-4ae4-af45-a3edf729d2ac] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:44.243Z I, [2024-06-05T20:14:44.005364 #27995]  INFO -- : [35c24d9a-450b-41d9-8f6a-355376ff1fcb] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:44 +0000
+2024-06-05T20:14:44.243Z I, [2024-06-05T20:14:44.005927 #27995]  INFO -- : [35c24d9a-450b-41d9-8f6a-355376ff1fcb] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:44.243Z I, [2024-06-05T20:14:44.005961 #27995]  INFO -- : [35c24d9a-450b-41d9-8f6a-355376ff1fcb]   Parameters: {"application"=>{}}
+2024-06-05T20:14:44.494Z I, [2024-06-05T20:14:44.006254 #27995]  INFO -- : [35c24d9a-450b-41d9-8f6a-355376ff1fcb] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:44.494Z I, [2024-06-05T20:14:44.256852 #27995]  INFO -- : [fc748f58-e7d2-4d9f-8737-5701bb0f6ff0] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:44 +0000
+2024-06-05T20:14:44.494Z I, [2024-06-05T20:14:44.257401 #27995]  INFO -- : [fc748f58-e7d2-4d9f-8737-5701bb0f6ff0] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:44.495Z I, [2024-06-05T20:14:44.257434 #27995]  INFO -- : [fc748f58-e7d2-4d9f-8737-5701bb0f6ff0]   Parameters: {"application"=>{}}
+2024-06-05T20:14:44.745Z I, [2024-06-05T20:14:44.257698 #27995]  INFO -- : [fc748f58-e7d2-4d9f-8737-5701bb0f6ff0] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:44.745Z I, [2024-06-05T20:14:44.506301 #27995]  INFO -- : [d8714380-f378-4655-bc6b-6212bc7959a3] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:44 +0000
+2024-06-05T20:14:44.745Z I, [2024-06-05T20:14:44.506861 #27995]  INFO -- : [d8714380-f378-4655-bc6b-6212bc7959a3] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:44.745Z I, [2024-06-05T20:14:44.506896 #27995]  INFO -- : [d8714380-f378-4655-bc6b-6212bc7959a3]   Parameters: {"application"=>{}}
+2024-06-05T20:14:45.245Z I, [2024-06-05T20:14:44.507162 #27995]  INFO -- : [d8714380-f378-4655-bc6b-6212bc7959a3] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:45.245Z I, [2024-06-05T20:14:45.156899 #27995]  INFO -- : [20a81d7b-c368-42c7-9648-3f0f9d3f7953] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:45 +0000
+2024-06-05T20:14:45.245Z I, [2024-06-05T20:14:45.157445 #27995]  INFO -- : [20a81d7b-c368-42c7-9648-3f0f9d3f7953] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:45.245Z I, [2024-06-05T20:14:45.157479 #27995]  INFO -- : [20a81d7b-c368-42c7-9648-3f0f9d3f7953]   Parameters: {"application"=>{}}
+2024-06-05T20:14:45.996Z I, [2024-06-05T20:14:45.157743 #27995]  INFO -- : [20a81d7b-c368-42c7-9648-3f0f9d3f7953] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:45.996Z I, [2024-06-05T20:14:45.805911 #27995]  INFO -- : [facf23f4-0222-4451-86af-128a48b30236] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:45 +0000
+2024-06-05T20:14:45.996Z I, [2024-06-05T20:14:45.806476 #27995]  INFO -- : [facf23f4-0222-4451-86af-128a48b30236] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:45.996Z I, [2024-06-05T20:14:45.806512 #27995]  INFO -- : [facf23f4-0222-4451-86af-128a48b30236]   Parameters: {"application"=>{}}
+2024-06-05T20:14:46.247Z I, [2024-06-05T20:14:45.806769 #27995]  INFO -- : [facf23f4-0222-4451-86af-128a48b30236] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:46.247Z I, [2024-06-05T20:14:46.055594 #27995]  INFO -- : [04486eb7-3fd6-4c1a-bef0-48f6b4b85535] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:46 +0000
+2024-06-05T20:14:46.247Z I, [2024-06-05T20:14:46.056249 #27995]  INFO -- : [04486eb7-3fd6-4c1a-bef0-48f6b4b85535] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:46.247Z I, [2024-06-05T20:14:46.056287 #27995]  INFO -- : [04486eb7-3fd6-4c1a-bef0-48f6b4b85535]   Parameters: {"application"=>{}}
+2024-06-05T20:14:46.498Z I, [2024-06-05T20:14:46.056551 #27995]  INFO -- : [04486eb7-3fd6-4c1a-bef0-48f6b4b85535] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:46.498Z I, [2024-06-05T20:14:46.302701 #27995]  INFO -- : [7f1808a1-38b4-49a9-af22-13de1c2b27ad] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:46 +0000
+2024-06-05T20:14:46.498Z I, [2024-06-05T20:14:46.303270 #27995]  INFO -- : [7f1808a1-38b4-49a9-af22-13de1c2b27ad] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:46.498Z I, [2024-06-05T20:14:46.303303 #27995]  INFO -- : [7f1808a1-38b4-49a9-af22-13de1c2b27ad]   Parameters: {"application"=>{}}
+2024-06-05T20:14:46.999Z I, [2024-06-05T20:14:46.303566 #27995]  INFO -- : [7f1808a1-38b4-49a9-af22-13de1c2b27ad] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:46.999Z I, [2024-06-05T20:14:46.951320 #27995]  INFO -- : [c3a80683-65a6-4896-83cc-4d7e228c0fa7] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:46 +0000
+2024-06-05T20:14:46.999Z I, [2024-06-05T20:14:46.952100 #27995]  INFO -- : [c3a80683-65a6-4896-83cc-4d7e228c0fa7] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:46.999Z I, [2024-06-05T20:14:46.952144 #27995]  INFO -- : [c3a80683-65a6-4896-83cc-4d7e228c0fa7]   Parameters: {"application"=>{}}
+2024-06-05T20:14:47.250Z I, [2024-06-05T20:14:46.952421 #27995]  INFO -- : [c3a80683-65a6-4896-83cc-4d7e228c0fa7] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:47.250Z I, [2024-06-05T20:14:47.200064 #27995]  INFO -- : [650aa96b-d425-4bf4-a760-64ddcc5bfb4f] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:47 +0000
+2024-06-05T20:14:47.250Z I, [2024-06-05T20:14:47.200618 #27995]  INFO -- : [650aa96b-d425-4bf4-a760-64ddcc5bfb4f] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:47.250Z I, [2024-06-05T20:14:47.200650 #27995]  INFO -- : [650aa96b-d425-4bf4-a760-64ddcc5bfb4f]   Parameters: {"application"=>{}}
+2024-06-05T20:14:47.500Z I, [2024-06-05T20:14:47.200936 #27995]  INFO -- : [650aa96b-d425-4bf4-a760-64ddcc5bfb4f] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:47.500Z I, [2024-06-05T20:14:47.447477 #27995]  INFO -- : [57eb827c-aa5b-4ed8-893f-09de2b330f7e] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:47 +0000
+2024-06-05T20:14:47.500Z I, [2024-06-05T20:14:47.448004 #27995]  INFO -- : [57eb827c-aa5b-4ed8-893f-09de2b330f7e] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:47.501Z I, [2024-06-05T20:14:47.448038 #27995]  INFO -- : [57eb827c-aa5b-4ed8-893f-09de2b330f7e]   Parameters: {"application"=>{}}
+2024-06-05T20:14:52.773Z I, [2024-06-05T20:14:52.284365 #27995]  INFO -- : [cb49114e-d422-4514-848f-9f81e61ab2b6] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:52.773Z I, [2024-06-05T20:14:52.530289 #27995]  INFO -- : [2dc2a7b8-ed71-40cb-8251-9854d87bb093] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:52 +0000
+2024-06-05T20:14:52.773Z I, [2024-06-05T20:14:52.530844 #27995]  INFO -- : [2dc2a7b8-ed71-40cb-8251-9854d87bb093] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:52.773Z I, [2024-06-05T20:14:52.530877 #27995]  INFO -- : [2dc2a7b8-ed71-40cb-8251-9854d87bb093]   Parameters: {"application"=>{}}
+2024-06-05T20:14:53.016Z I, [2024-06-05T20:14:52.531135 #27995]  INFO -- : [2dc2a7b8-ed71-40cb-8251-9854d87bb093] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:53.016Z I, [2024-06-05T20:14:52.778522 #27995]  INFO -- : [9e6c0ff5-2079-4a53-aabc-1002961725b4] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:52 +0000
+2024-06-05T20:14:53.016Z I, [2024-06-05T20:14:52.779209 #27995]  INFO -- : [9e6c0ff5-2079-4a53-aabc-1002961725b4] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:53.016Z I, [2024-06-05T20:14:52.779252 #27995]  INFO -- : [9e6c0ff5-2079-4a53-aabc-1002961725b4]   Parameters: {"application"=>{}}
+2024-06-05T20:14:53.267Z I, [2024-06-05T20:14:52.779630 #27995]  INFO -- : [9e6c0ff5-2079-4a53-aabc-1002961725b4] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:53.267Z I, [2024-06-05T20:14:53.026457 #27995]  INFO -- : [14516357-9900-4917-b89f-e9ecb0c95e4e] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:53 +0000
+2024-06-05T20:14:53.267Z I, [2024-06-05T20:14:53.027019 #27995]  INFO -- : [14516357-9900-4917-b89f-e9ecb0c95e4e] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:53.267Z I, [2024-06-05T20:14:53.027053 #27995]  INFO -- : [14516357-9900-4917-b89f-e9ecb0c95e4e]   Parameters: {"application"=>{}}
+2024-06-05T20:14:53.518Z I, [2024-06-05T20:14:53.027432 #27995]  INFO -- : [14516357-9900-4917-b89f-e9ecb0c95e4e] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:53.518Z I, [2024-06-05T20:14:53.273205 #27995]  INFO -- : [b71ec2d7-6e6f-4ae9-bd73-63b7533240ae] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:53 +0000
+2024-06-05T20:14:53.518Z I, [2024-06-05T20:14:53.273776 #27995]  INFO -- : [b71ec2d7-6e6f-4ae9-bd73-63b7533240ae] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:53.518Z I, [2024-06-05T20:14:53.273812 #27995]  INFO -- : [b71ec2d7-6e6f-4ae9-bd73-63b7533240ae]   Parameters: {"application"=>{}}
+2024-06-05T20:14:54.019Z I, [2024-06-05T20:14:53.274086 #27995]  INFO -- : [b71ec2d7-6e6f-4ae9-bd73-63b7533240ae] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:54.019Z I, [2024-06-05T20:14:53.920908 #27995]  INFO -- : [2e20c538-7b18-489f-a286-460a40b134c1] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:53 +0000
+2024-06-05T20:14:54.019Z I, [2024-06-05T20:14:53.921469 #27995]  INFO -- : [2e20c538-7b18-489f-a286-460a40b134c1] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:54.019Z I, [2024-06-05T20:14:53.921505 #27995]  INFO -- : [2e20c538-7b18-489f-a286-460a40b134c1]   Parameters: {"application"=>{}}
+2024-06-05T20:14:54.772Z I, [2024-06-05T20:14:53.921887 #27995]  INFO -- : [2e20c538-7b18-489f-a286-460a40b134c1] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:54.772Z I, [2024-06-05T20:14:54.568788 #27995]  INFO -- : [59c83277-22c6-4080-acc6-0160f3be203b] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:54 +0000
+2024-06-05T20:14:54.772Z I, [2024-06-05T20:14:54.569480 #27995]  INFO -- : [59c83277-22c6-4080-acc6-0160f3be203b] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:54.772Z I, [2024-06-05T20:14:54.569552 #27995]  INFO -- : [59c83277-22c6-4080-acc6-0160f3be203b]   Parameters: {"application"=>{}}
+2024-06-05T20:14:55.023Z I, [2024-06-05T20:14:54.569850 #27995]  INFO -- : [59c83277-22c6-4080-acc6-0160f3be203b] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:55.023Z I, [2024-06-05T20:14:54.817311 #27995]  INFO -- : [4712931b-06c3-49a9-b775-8e7d89860194] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:54 +0000
+2024-06-05T20:14:55.023Z I, [2024-06-05T20:14:54.818138 #27995]  INFO -- : [4712931b-06c3-49a9-b775-8e7d89860194] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:55.023Z I, [2024-06-05T20:14:54.818183 #27995]  INFO -- : [4712931b-06c3-49a9-b775-8e7d89860194]   Parameters: {"application"=>{}}
+2024-06-05T20:14:55.524Z I, [2024-06-05T20:14:54.818829 #27995]  INFO -- : [4712931b-06c3-49a9-b775-8e7d89860194] Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:55.524Z I, [2024-06-05T20:14:55.465009 #27995]  INFO -- : [1a47d9c6-8d48-485c-86b9-3fa46b08a783] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:55 +0000
+2024-06-05T20:14:55.524Z I, [2024-06-05T20:14:55.465563 #27995]  INFO -- : [1a47d9c6-8d48-485c-86b9-3fa46b08a783] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:55.524Z I, [2024-06-05T20:14:55.465597 #27995]  INFO -- : [1a47d9c6-8d48-485c-86b9-3fa46b08a783]   Parameters: {"application"=>{}}
+2024-06-05T20:14:56.276Z I, [2024-06-05T20:14:55.465866 #27995]  INFO -- : [1a47d9c6-8d48-485c-86b9-3fa46b08a783] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:56.276Z I, [2024-06-05T20:14:56.112725 #27995]  INFO -- : [51c1e74e-d1c3-4d7a-b0c2-a30fd9474775] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:56 +0000
+2024-06-05T20:14:56.276Z I, [2024-06-05T20:14:56.113550 #27995]  INFO -- : [51c1e74e-d1c3-4d7a-b0c2-a30fd9474775] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:56.276Z I, [2024-06-05T20:14:56.113594 #27995]  INFO -- : [51c1e74e-d1c3-4d7a-b0c2-a30fd9474775]   Parameters: {"application"=>{}}
+2024-06-05T20:14:56.777Z I, [2024-06-05T20:14:56.113871 #27995]  INFO -- : [51c1e74e-d1c3-4d7a-b0c2-a30fd9474775] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:56.777Z I, [2024-06-05T20:14:56.760765 #27995]  INFO -- : [273960d4-faa7-4656-83c4-84fc71f2517e] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:56 +0000
+2024-06-05T20:14:56.777Z I, [2024-06-05T20:14:56.762579 #27995]  INFO -- : [273960d4-faa7-4656-83c4-84fc71f2517e] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:56.777Z I, [2024-06-05T20:14:56.762637 #27995]  INFO -- : [273960d4-faa7-4656-83c4-84fc71f2517e]   Parameters: {"application"=>{}}
+2024-06-05T20:14:21.932Z I, [2024-06-05T20:14:21.238143 #27995]  INFO -- : [b8af5751-bf7c-4d65-a604-fae42218d765] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:21.932Z I, [2024-06-05T20:14:21.899845 #27995]  INFO -- : [c0ccf526-06c6-4939-9117-2e06d6f78108] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:21 +0000
+2024-06-05T20:14:21.932Z I, [2024-06-05T20:14:21.900732 #27995]  INFO -- : [c0ccf526-06c6-4939-9117-2e06d6f78108] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:21.932Z I, [2024-06-05T20:14:21.900774 #27995]  INFO -- : [c0ccf526-06c6-4939-9117-2e06d6f78108]   Parameters: {"application"=>{}}
+2024-06-05T20:14:23.183Z I, [2024-06-05T20:14:21.901053 #27995]  INFO -- : [c0ccf526-06c6-4939-9117-2e06d6f78108] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:23.183Z I, [2024-06-05T20:14:23.051714 #27995]  INFO -- : [d61fe69c-7d8c-4a43-a3f3-56fe9138df66] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:23 +0000
+2024-06-05T20:14:23.183Z I, [2024-06-05T20:14:23.052537 #27995]  INFO -- : [d61fe69c-7d8c-4a43-a3f3-56fe9138df66] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:23.183Z I, [2024-06-05T20:14:23.052579 #27995]  INFO -- : [d61fe69c-7d8c-4a43-a3f3-56fe9138df66]   Parameters: {"application"=>{}}
+2024-06-05T20:14:23.434Z I, [2024-06-05T20:14:23.053010 #27995]  INFO -- : [d61fe69c-7d8c-4a43-a3f3-56fe9138df66] Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:23.434Z I, [2024-06-05T20:14:23.302118 #27995]  INFO -- : [b4724d36-d692-4ce0-a79e-410fac46132d] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:23 +0000
+2024-06-05T20:14:23.434Z I, [2024-06-05T20:14:23.302701 #27995]  INFO -- : [b4724d36-d692-4ce0-a79e-410fac46132d] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:23.434Z I, [2024-06-05T20:14:23.302738 #27995]  INFO -- : [b4724d36-d692-4ce0-a79e-410fac46132d]   Parameters: {"application"=>{}}
+2024-06-05T20:14:24.688Z I, [2024-06-05T20:14:23.305995 #27995]  INFO -- : [b4724d36-d692-4ce0-a79e-410fac46132d] Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:24.688Z I, [2024-06-05T20:14:24.455224 #27995]  INFO -- : [c16a78e3-a5cf-4e04-8cdd-9fa5c97ca128] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:24 +0000
+2024-06-05T20:14:24.688Z I, [2024-06-05T20:14:24.456163 #27995]  INFO -- : [c16a78e3-a5cf-4e04-8cdd-9fa5c97ca128] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:24.688Z I, [2024-06-05T20:14:24.456206 #27995]  INFO -- : [c16a78e3-a5cf-4e04-8cdd-9fa5c97ca128]   Parameters: {"application"=>{}}
+2024-06-05T20:14:25.188Z I, [2024-06-05T20:14:24.456479 #27995]  INFO -- : [c16a78e3-a5cf-4e04-8cdd-9fa5c97ca128] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:25.188Z I, [2024-06-05T20:14:25.106021 #27995]  INFO -- : [0658d946-d7de-435d-a40f-53ff997d5876] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:25 +0000
+2024-06-05T20:14:25.188Z I, [2024-06-05T20:14:25.106580 #27995]  INFO -- : [0658d946-d7de-435d-a40f-53ff997d5876] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:25.188Z I, [2024-06-05T20:14:25.106612 #27995]  INFO -- : [0658d946-d7de-435d-a40f-53ff997d5876]   Parameters: {"application"=>{}}
+2024-06-05T20:14:26.443Z I, [2024-06-05T20:14:25.106982 #27995]  INFO -- : [0658d946-d7de-435d-a40f-53ff997d5876] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:26.443Z I, [2024-06-05T20:14:26.259320 #27995]  INFO -- : [5470777f-409f-4c1a-bb6a-ddad07e4ee6f] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:26 +0000
+2024-06-05T20:14:26.443Z I, [2024-06-05T20:14:26.260098 #27995]  INFO -- : [5470777f-409f-4c1a-bb6a-ddad07e4ee6f] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:26.443Z I, [2024-06-05T20:14:26.260144 #27995]  INFO -- : [5470777f-409f-4c1a-bb6a-ddad07e4ee6f]   Parameters: {"application"=>{}}
+2024-06-05T20:14:26.944Z I, [2024-06-05T20:14:26.260541 #27995]  INFO -- : [5470777f-409f-4c1a-bb6a-ddad07e4ee6f] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:26.944Z I, [2024-06-05T20:14:26.911348 #27995]  INFO -- : [a628f490-9904-4598-9b50-5a0620108576] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:26 +0000
+2024-06-05T20:14:26.944Z I, [2024-06-05T20:14:26.912187 #27995]  INFO -- : [a628f490-9904-4598-9b50-5a0620108576] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:26.944Z I, [2024-06-05T20:14:26.912228 #27995]  INFO -- : [a628f490-9904-4598-9b50-5a0620108576]   Parameters: {"application"=>{}}
+2024-06-05T20:14:27.195Z I, [2024-06-05T20:14:26.912548 #27995]  INFO -- : [a628f490-9904-4598-9b50-5a0620108576] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:27.195Z I, [2024-06-05T20:14:27.159061 #27995]  INFO -- : [e2342d82-7d36-467e-bac8-045b6d97952e] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:27 +0000
+2024-06-05T20:14:27.195Z I, [2024-06-05T20:14:27.159643 #27995]  INFO -- : [e2342d82-7d36-467e-bac8-045b6d97952e] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:27.195Z I, [2024-06-05T20:14:27.160124 #27995]  INFO -- : [e2342d82-7d36-467e-bac8-045b6d97952e]   Parameters: {"application"=>{}}
+2024-06-05T20:14:27.948Z I, [2024-06-05T20:14:27.160656 #27995]  INFO -- : [e2342d82-7d36-467e-bac8-045b6d97952e] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:27.948Z I, [2024-06-05T20:14:27.871330 #27995]  INFO -- : [5da03a60-e66d-476c-9c7e-925f475f0fc5] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:27 +0000
+2024-06-05T20:14:27.948Z I, [2024-06-05T20:14:27.872061 #27995]  INFO -- : [5da03a60-e66d-476c-9c7e-925f475f0fc5] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:27.948Z I, [2024-06-05T20:14:27.872104 #27995]  INFO -- : [5da03a60-e66d-476c-9c7e-925f475f0fc5]   Parameters: {"application"=>{}}
+2024-06-05T20:14:28.199Z I, [2024-06-05T20:14:27.872587 #27995]  INFO -- : [5da03a60-e66d-476c-9c7e-925f475f0fc5] Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:28.199Z I, [2024-06-05T20:14:28.122495 #27995]  INFO -- : [2f2334b9-d2a5-4eef-8876-d770366a5985] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:28 +0000
+2024-06-05T20:14:28.199Z I, [2024-06-05T20:14:28.123058 #27995]  INFO -- : [2f2334b9-d2a5-4eef-8876-d770366a5985] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:28.199Z I, [2024-06-05T20:14:28.123106 #27995]  INFO -- : [2f2334b9-d2a5-4eef-8876-d770366a5985]   Parameters: {"application"=>{}}
+2024-06-05T20:14:29.452Z I, [2024-06-05T20:14:28.123548 #27995]  INFO -- : [2f2334b9-d2a5-4eef-8876-d770366a5985] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:29.452Z I, [2024-06-05T20:14:29.272732 #27995]  INFO -- : [9f1bb781-c2b3-4315-85d4-7e906a075389] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:29 +0000
+2024-06-05T20:14:29.452Z I, [2024-06-05T20:14:29.273571 #27995]  INFO -- : [9f1bb781-c2b3-4315-85d4-7e906a075389] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:29.452Z I, [2024-06-05T20:14:29.273627 #27995]  INFO -- : [9f1bb781-c2b3-4315-85d4-7e906a075389]   Parameters: {"application"=>{}}
+2024-06-05T20:14:29.703Z I, [2024-06-05T20:14:29.274063 #27995]  INFO -- : [9f1bb781-c2b3-4315-85d4-7e906a075389] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:29.703Z I, [2024-06-05T20:14:29.523605 #27995]  INFO -- : [52d951a0-fdf6-45c2-94cc-ee191e0e9f84] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:29 +0000
+2024-06-05T20:14:29.703Z I, [2024-06-05T20:14:29.524155 #27995]  INFO -- : [52d951a0-fdf6-45c2-94cc-ee191e0e9f84] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:29.703Z I, [2024-06-05T20:14:29.524188 #27995]  INFO -- : [52d951a0-fdf6-45c2-94cc-ee191e0e9f84]   Parameters: {"application"=>{}}
+2024-06-05T20:14:30.705Z I, [2024-06-05T20:14:29.524847 #27995]  INFO -- : [52d951a0-fdf6-45c2-94cc-ee191e0e9f84] Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:30.705Z I, [2024-06-05T20:14:30.673094 #27995]  INFO -- : [c94ce940-4d73-4137-bad1-427e4ee092a6] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:30 +0000
+2024-06-05T20:14:30.705Z I, [2024-06-05T20:14:30.673897 #27995]  INFO -- : [c94ce940-4d73-4137-bad1-427e4ee092a6] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:30.705Z I, [2024-06-05T20:14:30.673949 #27995]  INFO -- : [c94ce940-4d73-4137-bad1-427e4ee092a6]   Parameters: {"application"=>{}}
+2024-06-05T20:14:31.457Z I, [2024-06-05T20:14:30.674212 #27995]  INFO -- : [c94ce940-4d73-4137-bad1-427e4ee092a6] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:31.457Z I, [2024-06-05T20:14:31.322610 #27995]  INFO -- : [c168a6fe-1c05-4985-853d-d6e6981d061c] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:31 +0000
+2024-06-05T20:14:31.457Z I, [2024-06-05T20:14:31.323268 #27995]  INFO -- : [c168a6fe-1c05-4985-853d-d6e6981d061c] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:31.457Z I, [2024-06-05T20:14:31.323307 #27995]  INFO -- : [c168a6fe-1c05-4985-853d-d6e6981d061c]   Parameters: {"application"=>{}}
+2024-06-05T20:14:31.708Z I, [2024-06-05T20:14:31.323587 #27995]  INFO -- : [c168a6fe-1c05-4985-853d-d6e6981d061c] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:31.708Z I, [2024-06-05T20:14:31.588577 #27995]  INFO -- : [a3553dd3-d5a0-4207-9840-61ea4be5da83] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:31 +0000
+2024-06-05T20:14:31.708Z I, [2024-06-05T20:14:31.589240 #27995]  INFO -- : [a3553dd3-d5a0-4207-9840-61ea4be5da83] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:31.708Z I, [2024-06-05T20:14:31.589277 #27995]  INFO -- : [a3553dd3-d5a0-4207-9840-61ea4be5da83]   Parameters: {"application"=>{}}
+2024-06-05T20:14:37.726Z I, [2024-06-05T20:14:36.460541 #27995]  INFO -- : [c4abed7c-5b4d-4019-8b31-d4a54a16175a] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:37.726Z I, [2024-06-05T20:14:37.606768 #27995]  INFO -- : [f89e998f-3647-403a-8d2e-98371387085b] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:37 +0000
+2024-06-05T20:14:37.726Z I, [2024-06-05T20:14:37.607710 #27995]  INFO -- : [f89e998f-3647-403a-8d2e-98371387085b] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:37.726Z I, [2024-06-05T20:14:37.607753 #27995]  INFO -- : [f89e998f-3647-403a-8d2e-98371387085b]   Parameters: {"application"=>{}}
+2024-06-05T20:14:38.980Z I, [2024-06-05T20:14:37.608056 #27995]  INFO -- : [f89e998f-3647-403a-8d2e-98371387085b] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:38.980Z I, [2024-06-05T20:14:38.756391 #27995]  INFO -- : [b52f8bd8-89a1-4fa2-9f7a-37f98380639f] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:38 +0000
+2024-06-05T20:14:38.980Z I, [2024-06-05T20:14:38.756955 #27995]  INFO -- : [b52f8bd8-89a1-4fa2-9f7a-37f98380639f] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:38.980Z I, [2024-06-05T20:14:38.756991 #27995]  INFO -- : [b52f8bd8-89a1-4fa2-9f7a-37f98380639f]   Parameters: {"application"=>{}}
+2024-06-05T20:14:39.230Z I, [2024-06-05T20:14:38.757249 #27995]  INFO -- : [b52f8bd8-89a1-4fa2-9f7a-37f98380639f] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:39.230Z I, [2024-06-05T20:14:39.006728 #27995]  INFO -- : [22175749-51f8-4ecb-897c-911c5d218e3d] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:39 +0000
+2024-06-05T20:14:39.230Z I, [2024-06-05T20:14:39.007277 #27995]  INFO -- : [22175749-51f8-4ecb-897c-911c5d218e3d] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:39.230Z I, [2024-06-05T20:14:39.007311 #27995]  INFO -- : [22175749-51f8-4ecb-897c-911c5d218e3d]   Parameters: {"application"=>{}}
+2024-06-05T20:14:40.232Z I, [2024-06-05T20:14:39.007697 #27995]  INFO -- : [22175749-51f8-4ecb-897c-911c5d218e3d] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:40.232Z I, [2024-06-05T20:14:40.157882 #27995]  INFO -- : [5e2eb725-f05e-4e0e-aa63-4fc7acc443bc] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:40 +0000
+2024-06-05T20:14:40.232Z I, [2024-06-05T20:14:40.158596 #27995]  INFO -- : [5e2eb725-f05e-4e0e-aa63-4fc7acc443bc] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:40.232Z I, [2024-06-05T20:14:40.158636 #27995]  INFO -- : [5e2eb725-f05e-4e0e-aa63-4fc7acc443bc]   Parameters: {"application"=>{}}
+2024-06-05T20:14:40.984Z I, [2024-06-05T20:14:40.158901 #27995]  INFO -- : [5e2eb725-f05e-4e0e-aa63-4fc7acc443bc] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:40.984Z I, [2024-06-05T20:14:40.806297 #27995]  INFO -- : [83a7fe87-3961-4daa-862c-3aa56beebd63] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:40 +0000
+2024-06-05T20:14:40.984Z I, [2024-06-05T20:14:40.806914 #27995]  INFO -- : [83a7fe87-3961-4daa-862c-3aa56beebd63] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:40.984Z I, [2024-06-05T20:14:40.806952 #27995]  INFO -- : [83a7fe87-3961-4daa-862c-3aa56beebd63]   Parameters: {"application"=>{}}
+2024-06-05T20:14:41.485Z I, [2024-06-05T20:14:40.807373 #27995]  INFO -- : [83a7fe87-3961-4daa-862c-3aa56beebd63] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:41.485Z I, [2024-06-05T20:14:41.458118 #27995]  INFO -- : [da982c88-13b4-4e46-9165-8ebb22437715] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:41 +0000
+2024-06-05T20:14:41.486Z I, [2024-06-05T20:14:41.458742 #27995]  INFO -- : [da982c88-13b4-4e46-9165-8ebb22437715] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:41.486Z I, [2024-06-05T20:14:41.458790 #27995]  INFO -- : [da982c88-13b4-4e46-9165-8ebb22437715]   Parameters: {"application"=>{}}
+2024-06-05T20:14:10.905Z I, [2024-06-05T20:14:10.232672 #27995]  INFO -- : [5957dce2-017c-4234-b2c2-766cf27989cf] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:10.905Z I, [2024-06-05T20:14:10.886371 #27995]  INFO -- : [4ab68fa9-3908-4dd9-b299-496c0a6faf7c] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:10 +0000
+2024-06-05T20:14:10.905Z I, [2024-06-05T20:14:10.886929 #27995]  INFO -- : [4ab68fa9-3908-4dd9-b299-496c0a6faf7c] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:10.906Z I, [2024-06-05T20:14:10.886961 #27995]  INFO -- : [4ab68fa9-3908-4dd9-b299-496c0a6faf7c]   Parameters: {"application"=>{}}
+2024-06-05T20:14:12.156Z I, [2024-06-05T20:14:10.887244 #27995]  INFO -- : [4ab68fa9-3908-4dd9-b299-496c0a6faf7c] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:12.156Z I, [2024-06-05T20:14:12.038394 #27995]  INFO -- : [a5129a86-3660-4540-995e-130d9d246b24] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:12 +0000
+2024-06-05T20:14:12.156Z I, [2024-06-05T20:14:12.039154 #27995]  INFO -- : [a5129a86-3660-4540-995e-130d9d246b24] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:12.156Z I, [2024-06-05T20:14:12.039199 #27995]  INFO -- : [a5129a86-3660-4540-995e-130d9d246b24]   Parameters: {"application"=>{}}
+2024-06-05T20:14:12.407Z I, [2024-06-05T20:14:12.041344 #27995]  INFO -- : [a5129a86-3660-4540-995e-130d9d246b24] Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:12.407Z I, [2024-06-05T20:14:12.291282 #27995]  INFO -- : [287f3019-c6b3-46e8-8adf-e34d72940a84] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:12 +0000
+2024-06-05T20:14:12.407Z I, [2024-06-05T20:14:12.292066 #27995]  INFO -- : [287f3019-c6b3-46e8-8adf-e34d72940a84] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:12.407Z I, [2024-06-05T20:14:12.292112 #27995]  INFO -- : [287f3019-c6b3-46e8-8adf-e34d72940a84]   Parameters: {"application"=>{}}
+2024-06-05T20:14:13.662Z I, [2024-06-05T20:14:12.292492 #27995]  INFO -- : [287f3019-c6b3-46e8-8adf-e34d72940a84] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:13.662Z I, [2024-06-05T20:14:13.446930 #27995]  INFO -- : [cad01945-e5ce-43f6-9478-5b3614520808] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:13 +0000
+2024-06-05T20:14:13.662Z I, [2024-06-05T20:14:13.450763 #27995]  INFO -- : [cad01945-e5ce-43f6-9478-5b3614520808] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:13.662Z I, [2024-06-05T20:14:13.450901 #27995]  INFO -- : [cad01945-e5ce-43f6-9478-5b3614520808]   Parameters: {"application"=>{}}
+2024-06-05T20:14:14.663Z I, [2024-06-05T20:14:13.467207 #27995]  INFO -- : [cad01945-e5ce-43f6-9478-5b3614520808] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:14.663Z I, [2024-06-05T20:14:14.620176 #27995]  INFO -- : [93d9879d-70ea-4788-9d67-4b28fe56f2ba] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:14 +0000
+2024-06-05T20:14:14.663Z I, [2024-06-05T20:14:14.620750 #27995]  INFO -- : [93d9879d-70ea-4788-9d67-4b28fe56f2ba] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:14.663Z I, [2024-06-05T20:14:14.620785 #27995]  INFO -- : [93d9879d-70ea-4788-9d67-4b28fe56f2ba]   Parameters: {"application"=>{}}
+2024-06-05T20:14:15.415Z I, [2024-06-05T20:14:14.621123 #27995]  INFO -- : [93d9879d-70ea-4788-9d67-4b28fe56f2ba] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:15.415Z I, [2024-06-05T20:14:15.289980 #27995]  INFO -- : [150583dd-1cac-46d8-8523-19903869e1d0] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:15 +0000
+2024-06-05T20:14:15.415Z I, [2024-06-05T20:14:15.295032 #27995]  INFO -- : [150583dd-1cac-46d8-8523-19903869e1d0] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:15.415Z I, [2024-06-05T20:14:15.295104 #27995]  INFO -- : [150583dd-1cac-46d8-8523-19903869e1d0]   Parameters: {"application"=>{}}
+2024-06-05T20:14:16.668Z I, [2024-06-05T20:14:15.295438 #27995]  INFO -- : [150583dd-1cac-46d8-8523-19903869e1d0] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:16.668Z I, [2024-06-05T20:14:16.444050 #27995]  INFO -- : [d0ae39be-0fa8-4cba-981c-2a7964199eef] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:16 +0000
+2024-06-05T20:14:16.668Z I, [2024-06-05T20:14:16.447785 #27995]  INFO -- : [d0ae39be-0fa8-4cba-981c-2a7964199eef] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:16.668Z I, [2024-06-05T20:14:16.447857 #27995]  INFO -- : [d0ae39be-0fa8-4cba-981c-2a7964199eef]   Parameters: {"application"=>{}}
+2024-06-05T20:14:17.169Z I, [2024-06-05T20:14:16.448184 #27995]  INFO -- : [d0ae39be-0fa8-4cba-981c-2a7964199eef] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:17.169Z I, [2024-06-05T20:14:17.098930 #27995]  INFO -- : [63230585-5477-4dbb-b1c0-01a9157eb1e2] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:17 +0000
+2024-06-05T20:14:17.169Z I, [2024-06-05T20:14:17.099569 #27995]  INFO -- : [63230585-5477-4dbb-b1c0-01a9157eb1e2] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:17.169Z I, [2024-06-05T20:14:17.099608 #27995]  INFO -- : [63230585-5477-4dbb-b1c0-01a9157eb1e2]   Parameters: {"application"=>{}}
+2024-06-05T20:14:17.921Z I, [2024-06-05T20:14:17.102804 #27995]  INFO -- : [63230585-5477-4dbb-b1c0-01a9157eb1e2] Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:17.921Z I, [2024-06-05T20:14:17.759767 #27995]  INFO -- : [f6eedda0-fbfe-4d94-8a73-72d909c414ee] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:17 +0000
+2024-06-05T20:14:17.921Z I, [2024-06-05T20:14:17.766301 #27995]  INFO -- : [f6eedda0-fbfe-4d94-8a73-72d909c414ee] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:17.921Z I, [2024-06-05T20:14:17.766372 #27995]  INFO -- : [f6eedda0-fbfe-4d94-8a73-72d909c414ee]   Parameters: {"application"=>{}}
+2024-06-05T20:14:18.423Z I, [2024-06-05T20:14:17.766654 #27995]  INFO -- : [f6eedda0-fbfe-4d94-8a73-72d909c414ee] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:18.423Z I, [2024-06-05T20:14:18.417892 #27995]  INFO -- : [b74d8eaa-cc22-4092-99a6-d577bd64626c] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:18 +0000
+2024-06-05T20:14:18.423Z I, [2024-06-05T20:14:18.418455 #27995]  INFO -- : [b74d8eaa-cc22-4092-99a6-d577bd64626c] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:18.674Z I, [2024-06-05T20:14:18.418494 #27995]  INFO -- : [b74d8eaa-cc22-4092-99a6-d577bd64626c]   Parameters: {"application"=>{}}
+2024-06-05T20:14:19.676Z I, [2024-06-05T20:14:18.421315 #27995]  INFO -- : [b74d8eaa-cc22-4092-99a6-d577bd64626c] Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:19.676Z I, [2024-06-05T20:14:19.577267 #27995]  INFO -- : [22ef7181-5c9e-456c-bc2c-8fe99574bad8] Started GET "/buntaro" for 34.168.70.42 at 2024-06-05 20:14:19 +0000
+2024-06-05T20:14:19.676Z I, [2024-06-05T20:14:19.578052 #27995]  INFO -- : [22ef7181-5c9e-456c-bc2c-8fe99574bad8] Processing by ApplicationController#buntaro as */*
+2024-06-05T20:14:19.676Z I, [2024-06-05T20:14:19.578095 #27995]  INFO -- : [22ef7181-5c9e-456c-bc2c-8fe99574bad8]   Parameters: {"application"=>{}}
+2024-06-05T20:14:19.927Z I, [2024-06-05T20:14:19.578416 #27995]  INFO -- : [22ef7181-5c9e-456c-bc2c-8fe99574bad8] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:19.927Z I, [2024-06-05T20:14:19.827223 #27995]  INFO -- : [90a68c95-6e93-4039-b7c7-18b4a3e65cf9] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:19 +0000
+2024-06-05T20:14:19.927Z I, [2024-06-05T20:14:19.827774 #27995]  INFO -- : [90a68c95-6e93-4039-b7c7-18b4a3e65cf9] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:19.927Z I, [2024-06-05T20:14:19.827809 #27995]  INFO -- : [90a68c95-6e93-4039-b7c7-18b4a3e65cf9]   Parameters: {"application"=>{}}
+2024-06-05T20:14:21.179Z I, [2024-06-05T20:14:19.828070 #27995]  INFO -- : [90a68c95-6e93-4039-b7c7-18b4a3e65cf9] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:21.179Z I, [2024-06-05T20:14:20.985010 #27995]  INFO -- : [7e04f998-fc0c-47bb-8d98-99e489e71a19] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:20 +0000
+2024-06-05T20:14:21.179Z I, [2024-06-05T20:14:20.986184 #27995]  INFO -- : [7e04f998-fc0c-47bb-8d98-99e489e71a19] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:21.179Z I, [2024-06-05T20:14:20.986233 #27995]  INFO -- : [7e04f998-fc0c-47bb-8d98-99e489e71a19]   Parameters: {"application"=>{}}
+2024-06-05T20:14:21.430Z I, [2024-06-05T20:14:20.986809 #27995]  INFO -- : [7e04f998-fc0c-47bb-8d98-99e489e71a19] Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:21.430Z I, [2024-06-05T20:14:21.237277 #27995]  INFO -- : [b8af5751-bf7c-4d65-a604-fae42218d765] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:21 +0000
+2024-06-05T20:14:21.430Z I, [2024-06-05T20:14:21.237829 #27995]  INFO -- : [b8af5751-bf7c-4d65-a604-fae42218d765] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:21.430Z I, [2024-06-05T20:14:21.237863 #27995]  INFO -- : [b8af5751-bf7c-4d65-a604-fae42218d765]   Parameters: {"application"=>{}}
+2024-06-05T20:14:47.755Z I, [2024-06-05T20:14:47.448292 #27995]  INFO -- : [57eb827c-aa5b-4ed8-893f-09de2b330f7e] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:47.755Z I, [2024-06-05T20:14:47.693482 #27995]  INFO -- : [a6f25c0d-a493-496d-b5d7-49ef990a09e3] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:47 +0000
+2024-06-05T20:14:47.755Z I, [2024-06-05T20:14:47.694043 #27995]  INFO -- : [a6f25c0d-a493-496d-b5d7-49ef990a09e3] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:47.755Z I, [2024-06-05T20:14:47.694080 #27995]  INFO -- : [a6f25c0d-a493-496d-b5d7-49ef990a09e3]   Parameters: {"application"=>{}}
+2024-06-05T20:14:48.002Z I, [2024-06-05T20:14:47.694450 #27995]  INFO -- : [a6f25c0d-a493-496d-b5d7-49ef990a09e3] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:48.002Z I, [2024-06-05T20:14:47.942134 #27995]  INFO -- : [82c7e891-9d67-443a-81bc-cf2d648e9bb4] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:47 +0000
+2024-06-05T20:14:48.002Z I, [2024-06-05T20:14:47.942757 #27995]  INFO -- : [82c7e891-9d67-443a-81bc-cf2d648e9bb4] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:48.002Z I, [2024-06-05T20:14:47.942794 #27995]  INFO -- : [82c7e891-9d67-443a-81bc-cf2d648e9bb4]   Parameters: {"application"=>{}}
+2024-06-05T20:14:49.255Z I, [2024-06-05T20:14:47.943387 #27995]  INFO -- : [82c7e891-9d67-443a-81bc-cf2d648e9bb4] Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:49.255Z I, [2024-06-05T20:14:49.090903 #27995]  INFO -- : [bbd7cff7-6dd3-4073-bcb2-08b4097dd2a3] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:49 +0000
+2024-06-05T20:14:49.255Z I, [2024-06-05T20:14:49.091468 #27995]  INFO -- : [bbd7cff7-6dd3-4073-bcb2-08b4097dd2a3] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:49.255Z I, [2024-06-05T20:14:49.091504 #27995]  INFO -- : [bbd7cff7-6dd3-4073-bcb2-08b4097dd2a3]   Parameters: {"application"=>{}}
+2024-06-05T20:14:50.258Z I, [2024-06-05T20:14:49.091883 #27995]  INFO -- : [bbd7cff7-6dd3-4073-bcb2-08b4097dd2a3] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:50.258Z I, [2024-06-05T20:14:50.238408 #27995]  INFO -- : [3ccc99e7-c935-40dc-b356-6b07c384a319] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:50 +0000
+2024-06-05T20:14:50.258Z I, [2024-06-05T20:14:50.239314 #27995]  INFO -- : [3ccc99e7-c935-40dc-b356-6b07c384a319] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:50.258Z I, [2024-06-05T20:14:50.239361 #27995]  INFO -- : [3ccc99e7-c935-40dc-b356-6b07c384a319]   Parameters: {"application"=>{}}
+2024-06-05T20:14:51.511Z I, [2024-06-05T20:14:50.239644 #27995]  INFO -- : [3ccc99e7-c935-40dc-b356-6b07c384a319] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:51.511Z I, [2024-06-05T20:14:51.387056 #27995]  INFO -- : [2a8c36c1-91cf-496e-bf07-002c8f3fa164] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:51 +0000
+2024-06-05T20:14:51.511Z I, [2024-06-05T20:14:51.387692 #27995]  INFO -- : [2a8c36c1-91cf-496e-bf07-002c8f3fa164] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:51.511Z I, [2024-06-05T20:14:51.387772 #27995]  INFO -- : [2a8c36c1-91cf-496e-bf07-002c8f3fa164]   Parameters: {"application"=>{}}
+2024-06-05T20:14:51.762Z I, [2024-06-05T20:14:51.388174 #27995]  INFO -- : [2a8c36c1-91cf-496e-bf07-002c8f3fa164] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:51.762Z I, [2024-06-05T20:14:51.634896 #27995]  INFO -- : [d47b7e9a-d6ae-4b8e-8241-ce4da679e886] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:51 +0000
+2024-06-05T20:14:51.762Z I, [2024-06-05T20:14:51.635804 #27995]  INFO -- : [d47b7e9a-d6ae-4b8e-8241-ce4da679e886] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:51.762Z I, [2024-06-05T20:14:51.635849 #27995]  INFO -- : [d47b7e9a-d6ae-4b8e-8241-ce4da679e886]   Parameters: {"application"=>{}}
+2024-06-05T20:14:52.515Z I, [2024-06-05T20:14:51.636133 #27995]  INFO -- : [d47b7e9a-d6ae-4b8e-8241-ce4da679e886] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:52.515Z I, [2024-06-05T20:14:52.283286 #27995]  INFO -- : [cb49114e-d422-4514-848f-9f81e61ab2b6] Started POST "/ishido" for 34.168.70.42 at 2024-06-05 20:14:52 +0000
+2024-06-05T20:14:52.515Z I, [2024-06-05T20:14:52.284048 #27995]  INFO -- : [cb49114e-d422-4514-848f-9f81e61ab2b6] Processing by ApplicationController#ishido as */*
+2024-06-05T20:14:52.515Z I, [2024-06-05T20:14:52.284088 #27995]  INFO -- : [cb49114e-d422-4514-848f-9f81e61ab2b6]   Parameters: {"application"=>{}}
+2024-06-05T20:14:05.640Z I, [2024-06-05T20:14:05.618625 #27995]  INFO -- : [eb122965-b413-45cf-8785-8a7f12f77b63] Started GET "/lord_yabu" for 34.168.70.42 at 2024-06-05 20:14:05 +0000
+2024-06-05T20:14:05.640Z I, [2024-06-05T20:14:05.623864 #27995]  INFO -- : [eb122965-b413-45cf-8785-8a7f12f77b63] Processing by ApplicationController#lord_yabu as */*
+2024-06-05T20:14:05.640Z I, [2024-06-05T20:14:05.623934 #27995]  INFO -- : [eb122965-b413-45cf-8785-8a7f12f77b63]   Parameters: {"application"=>{}}
+2024-06-05T20:14:06.895Z I, [2024-06-05T20:14:05.624514 #27995]  INFO -- : [eb122965-b413-45cf-8785-8a7f12f77b63] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 334)
+2024-06-05T20:14:06.895Z I, [2024-06-05T20:14:06.779498 #27995]  INFO -- : [65351226-5275-4235-a8d5-b20b4e8750a4] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:06 +0000
+2024-06-05T20:14:06.895Z I, [2024-06-05T20:14:06.780422 #27995]  INFO -- : [65351226-5275-4235-a8d5-b20b4e8750a4] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:06.895Z I, [2024-06-05T20:14:06.780465 #27995]  INFO -- : [65351226-5275-4235-a8d5-b20b4e8750a4]   Parameters: {"application"=>{}}
+2024-06-05T20:14:07.145Z I, [2024-06-05T20:14:06.780804 #27995]  INFO -- : [65351226-5275-4235-a8d5-b20b4e8750a4] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 71)
+2024-06-05T20:14:07.145Z I, [2024-06-05T20:14:07.030120 #27995]  INFO -- : [267b8195-9e28-466f-82e1-28ffe60ca908] Started POST "/mariko" for 34.168.70.42 at 2024-06-05 20:14:07 +0000
+2024-06-05T20:14:07.145Z I, [2024-06-05T20:14:07.030831 #27995]  INFO -- : [267b8195-9e28-466f-82e1-28ffe60ca908] Processing by ApplicationController#mariko as */*
+2024-06-05T20:14:07.145Z I, [2024-06-05T20:14:07.030870 #27995]  INFO -- : [267b8195-9e28-466f-82e1-28ffe60ca908]   Parameters: {"application"=>{}}
+2024-06-05T20:14:08.397Z I, [2024-06-05T20:14:07.031146 #27995]  INFO -- : [267b8195-9e28-466f-82e1-28ffe60ca908] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 71)
+2024-06-05T20:14:08.397Z I, [2024-06-05T20:14:08.182628 #27995]  INFO -- : [ff861dfd-2312-4787-ba0b-bbade5ec5672] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:08 +0000
+2024-06-05T20:14:08.397Z I, [2024-06-05T20:14:08.183197 #27995]  INFO -- : [ff861dfd-2312-4787-ba0b-bbade5ec5672] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:08.397Z I, [2024-06-05T20:14:08.183235 #27995]  INFO -- : [ff861dfd-2312-4787-ba0b-bbade5ec5672]   Parameters: {"application"=>{}}
+2024-06-05T20:14:09.401Z I, [2024-06-05T20:14:08.183573 #27995]  INFO -- : [ff861dfd-2312-4787-ba0b-bbade5ec5672] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 71)
+2024-06-05T20:14:09.401Z I, [2024-06-05T20:14:09.330549 #27995]  INFO -- : [fc6e1a56-6db1-4295-b469-30db20766ce4] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:09 +0000
+2024-06-05T20:14:09.401Z I, [2024-06-05T20:14:09.331101 #27995]  INFO -- : [fc6e1a56-6db1-4295-b469-30db20766ce4] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:09.401Z I, [2024-06-05T20:14:09.331134 #27995]  INFO -- : [fc6e1a56-6db1-4295-b469-30db20766ce4]   Parameters: {"application"=>{}}
+2024-06-05T20:14:10.153Z I, [2024-06-05T20:14:09.331396 #27995]  INFO -- : [fc6e1a56-6db1-4295-b469-30db20766ce4] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 71)
+2024-06-05T20:14:10.153Z I, [2024-06-05T20:14:09.981440 #27995]  INFO -- : [93a7665c-1889-45fa-b84c-ce8f0f549646] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:09 +0000
+2024-06-05T20:14:10.153Z I, [2024-06-05T20:14:09.982381 #27995]  INFO -- : [93a7665c-1889-45fa-b84c-ce8f0f549646] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:10.153Z I, [2024-06-05T20:14:09.982431 #27995]  INFO -- : [93a7665c-1889-45fa-b84c-ce8f0f549646]   Parameters: {"application"=>{}}
+2024-06-05T20:14:10.404Z I, [2024-06-05T20:14:09.982866 #27995]  INFO -- : [93a7665c-1889-45fa-b84c-ce8f0f549646] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 69)
+2024-06-05T20:14:10.404Z I, [2024-06-05T20:14:10.230815 #27995]  INFO -- : [5957dce2-017c-4234-b2c2-766cf27989cf] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:10 +0000
+2024-06-05T20:14:10.404Z I, [2024-06-05T20:14:10.232140 #27995]  INFO -- : [5957dce2-017c-4234-b2c2-766cf27989cf] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:10.404Z I, [2024-06-05T20:14:10.232233 #27995]  INFO -- : [5957dce2-017c-4234-b2c2-766cf27989cf]   Parameters: {"application"=>{}}
+2024-06-05T20:14:31.959Z I, [2024-06-05T20:14:31.589537 #27995]  INFO -- : [a3553dd3-d5a0-4207-9840-61ea4be5da83] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:31.959Z I, [2024-06-05T20:14:31.839135 #27995]  INFO -- : [33509dc9-10e8-44df-bb62-183177ea7963] Started POST "/kiku" for 34.168.70.42 at 2024-06-05 20:14:31 +0000
+2024-06-05T20:14:31.959Z I, [2024-06-05T20:14:31.839881 #27995]  INFO -- : [33509dc9-10e8-44df-bb62-183177ea7963] Processing by ApplicationController#kiku as */*
+2024-06-05T20:14:31.959Z I, [2024-06-05T20:14:31.839922 #27995]  INFO -- : [33509dc9-10e8-44df-bb62-183177ea7963]   Parameters: {"application"=>{}}
+2024-06-05T20:14:32.711Z I, [2024-06-05T20:14:31.840298 #27995]  INFO -- : [33509dc9-10e8-44df-bb62-183177ea7963] Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:32.711Z I, [2024-06-05T20:14:32.497967 #27995]  INFO -- : [2b8552d8-0ee4-4d73-ae2a-21c5a0243d37] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:14:32 +0000
+2024-06-05T20:14:32.711Z I, [2024-06-05T20:14:32.498509 #27995]  INFO -- : [2b8552d8-0ee4-4d73-ae2a-21c5a0243d37] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:14:32.711Z I, [2024-06-05T20:14:32.498541 #27995]  INFO -- : [2b8552d8-0ee4-4d73-ae2a-21c5a0243d37]   Parameters: {"application"=>{}}
+2024-06-05T20:14:32.961Z I, [2024-06-05T20:14:32.498797 #27995]  INFO -- : [2b8552d8-0ee4-4d73-ae2a-21c5a0243d37] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:32.961Z I, [2024-06-05T20:14:32.754540 #27995]  INFO -- : [490012bb-fd65-464d-b70a-6b09a166a6ed] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:32 +0000
+2024-06-05T20:14:32.961Z I, [2024-06-05T20:14:32.755093 #27995]  INFO -- : [490012bb-fd65-464d-b70a-6b09a166a6ed] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:32.961Z I, [2024-06-05T20:14:32.755127 #27995]  INFO -- : [490012bb-fd65-464d-b70a-6b09a166a6ed]   Parameters: {"application"=>{}}
+2024-06-05T20:14:33.965Z I, [2024-06-05T20:14:32.755396 #27995]  INFO -- : [490012bb-fd65-464d-b70a-6b09a166a6ed] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:33.965Z I, [2024-06-05T20:14:33.905449 #27995]  INFO -- : [216f5bb6-6eb3-4ee2-89f2-d363ad85bcda] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:14:33 +0000
+2024-06-05T20:14:33.965Z I, [2024-06-05T20:14:33.906231 #27995]  INFO -- : [216f5bb6-6eb3-4ee2-89f2-d363ad85bcda] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:14:33.965Z I, [2024-06-05T20:14:33.906274 #27995]  INFO -- : [216f5bb6-6eb3-4ee2-89f2-d363ad85bcda]   Parameters: {"application"=>{}}
+2024-06-05T20:14:34.215Z I, [2024-06-05T20:14:33.906550 #27995]  INFO -- : [216f5bb6-6eb3-4ee2-89f2-d363ad85bcda] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:34.215Z I, [2024-06-05T20:14:34.161485 #27995]  INFO -- : [ebb5f4f6-9f5b-4ebc-b4c5-5590a5bc1f4c] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:14:34 +0000
+2024-06-05T20:14:34.215Z I, [2024-06-05T20:14:34.162077 #27995]  INFO -- : [ebb5f4f6-9f5b-4ebc-b4c5-5590a5bc1f4c] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:14:34.215Z I, [2024-06-05T20:14:34.162118 #27995]  INFO -- : [ebb5f4f6-9f5b-4ebc-b4c5-5590a5bc1f4c]   Parameters: {"application"=>{}}
+2024-06-05T20:14:35.469Z I, [2024-06-05T20:14:34.162408 #27995]  INFO -- : [ebb5f4f6-9f5b-4ebc-b4c5-5590a5bc1f4c] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:35.469Z I, [2024-06-05T20:14:35.309446 #27995]  INFO -- : [5354b170-38c3-47a3-b578-12e62548a501] Started PUT "/omi" for 34.168.70.42 at 2024-06-05 20:14:35 +0000
+2024-06-05T20:14:35.469Z I, [2024-06-05T20:14:35.309987 #27995]  INFO -- : [5354b170-38c3-47a3-b578-12e62548a501] Processing by ApplicationController#omi as */*
+2024-06-05T20:14:35.469Z I, [2024-06-05T20:14:35.310029 #27995]  INFO -- : [5354b170-38c3-47a3-b578-12e62548a501]   Parameters: {"application"=>{}}
+2024-06-05T20:14:36.473Z I, [2024-06-05T20:14:35.310537 #27995]  INFO -- : [5354b170-38c3-47a3-b578-12e62548a501] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:14:36.473Z I, [2024-06-05T20:14:36.459638 #27995]  INFO -- : [c4abed7c-5b4d-4019-8b31-d4a54a16175a] Started PUT "/lord_toranaga" for 34.168.70.42 at 2024-06-05 20:14:36 +0000
+2024-06-05T20:14:36.473Z I, [2024-06-05T20:14:36.460238 #27995]  INFO -- : [c4abed7c-5b4d-4019-8b31-d4a54a16175a] Processing by ApplicationController#lord_toranaga as */*
+2024-06-05T20:14:36.473Z I, [2024-06-05T20:14:36.460282 #27995]  INFO -- : [c4abed7c-5b4d-4019-8b31-d4a54a16175a]   Parameters: {"application"=>{}}
+2024-06-05T20:15:03.296Z I, [2024-06-05T20:15:02.106799 #27995]  INFO -- : [b25209a9-8ae8-4cdb-8a6c-a6d73fe6a8dd] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:03.296Z I, [2024-06-05T20:15:03.254198 #27995]  INFO -- : [ca2b871f-660c-4384-a28c-c4b5b8feb3ab] Started GET "/lady_fujiko" for 34.168.70.42 at 2024-06-05 20:15:03 +0000
+2024-06-05T20:15:03.296Z I, [2024-06-05T20:15:03.254752 #27995]  INFO -- : [ca2b871f-660c-4384-a28c-c4b5b8feb3ab] Processing by ApplicationController#lady_fujiko as */*
+2024-06-05T20:15:03.296Z I, [2024-06-05T20:15:03.254786 #27995]  INFO -- : [ca2b871f-660c-4384-a28c-c4b5b8feb3ab]   Parameters: {"application"=>{}}
+2024-06-05T20:15:03.547Z I, [2024-06-05T20:15:03.255048 #27995]  INFO -- : [ca2b871f-660c-4384-a28c-c4b5b8feb3ab] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:03.547Z I, [2024-06-05T20:15:03.501295 #27995]  INFO -- : [fd974127-b67f-4f37-92da-04bd297c7fdd] Started GET "/father_alvito" for 34.168.70.42 at 2024-06-05 20:15:03 +0000
+2024-06-05T20:15:03.547Z I, [2024-06-05T20:15:03.501928 #27995]  INFO -- : [fd974127-b67f-4f37-92da-04bd297c7fdd] Processing by ApplicationController#father_alvito as */*
+2024-06-05T20:15:03.547Z I, [2024-06-05T20:15:03.501985 #27995]  INFO -- : [fd974127-b67f-4f37-92da-04bd297c7fdd]   Parameters: {"application"=>{}}
+2024-06-05T20:15:04.801Z I, [2024-06-05T20:15:03.502299 #27995]  INFO -- : [fd974127-b67f-4f37-92da-04bd297c7fdd] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)
+2024-06-05T20:15:04.801Z I, [2024-06-05T20:15:04.647907 #27995]  INFO -- : [aac081cd-3e89-47d8-b211-787fe6e7d343] Started GET "/john_blackthorne" for 34.168.70.42 at 2024-06-05 20:15:04 +0000
+2024-06-05T20:15:04.801Z I, [2024-06-05T20:15:04.648470 #27995]  INFO -- : [aac081cd-3e89-47d8-b211-787fe6e7d343] Processing by ApplicationController#john_blackthorne as */*
+2024-06-05T20:15:04.801Z I, [2024-06-05T20:15:04.648506 #27995]  INFO -- : [aac081cd-3e89-47d8-b211-787fe6e7d343]   Parameters: {"application"=>{}}
+2024-06-05T20:15:08.848Z I, [2024-06-05T20:15:04.648775 #27995]  INFO -- : [aac081cd-3e89-47d8-b211-787fe6e7d343] Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 68)

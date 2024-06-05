@@ -1,0 +1,169 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  [NESTED] Run commands for setting up app
+Resources:
+  DocumentYumUpdate:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: YumUpdate
+      Content:
+        schemaVersion: '2.2'
+        mainSteps:
+        - action: aws:runShellScript
+          name: YumUpdate
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "sudo yum -y update"
+  DocumentSystemDeps:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: SystemDeps
+      Content:
+        schemaVersion: '2.2'
+        mainSteps:
+        - action: aws:runShellScript
+          name: InstallSystemDependencies
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "sudo yum install -y gcc libyaml-devel ruby-devel libxml2 libxml2-devel libxslt libxslt-devel patch redhat-rpm-config sqlite"
+  DocumentInstallGems:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: InstallGems
+      Content:
+        schemaVersion: '2.2'
+        mainSteps:
+        - action: aws:runShellScript
+          name: installBundler
+          inputs:
+            timeoutSeconds: '120'
+            runCommand:
+              - sudo su - ec2-user -c "gem install bundler"
+        - action: aws:runShellScript
+          name: installRails
+          inputs:
+            timeoutSeconds: '120'
+            runCommand:
+              - sudo su - ec2-user -c "gem install rails"
+  DocumentDownloadCodebase:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: DownloadCodebase
+      Content:
+        schemaVersion: '2.2'
+        parameters:
+          ArtifactS3Bucket:
+            type: String
+          ArtifactS3Path:
+            type: String
+          ArtifactS3Filename:
+            type: String
+        mainSteps:
+        - action: aws:runShellScript
+          name: downloadCodebase
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              # - sudo su - ec2-user -c "aws s3 cp s3://{{ArtifactS3Bucket}}/{{ArtifactS3Path}}/{{ArtifactS3Filename}} /tmp/{{ArtifactS3Filename}}"
+              - sudo su - ec2-user -c "aws s3 cp s3://cw-agent-app-325252/app.zip /tmp/app.zip"
+        - action: aws:runShellScript
+          name: createAppDir
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "mkdir /home/ec2-user/app"
+        - action: aws:runShellScript
+          name: unzipCodebase
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "unzip /tmp/app.zip -d /home/ec2-user/app"
+        - action: aws:runShellScript
+          name: deleteZip
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "rm /tmp/app.zip"
+  DocumentBundleInstall:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: BundleInstall
+      Content:
+        schemaVersion: '2.2'
+        mainSteps:
+        - action: aws:runShellScript
+          name: configBundle
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "bundle config set --local path '/home/ec2-user/app/vendor/bundle'"
+        - action: aws:runShellScript
+          name: installBundle
+          inputs:
+            timeoutSeconds: '600'
+            runCommand:
+              - sudo su - ec2-user -c "cd /home/ec2-user/app && bundle install"
+  DocumentConfigAndStartCloudWatchAgent:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Command
+      Tags:
+        - Key: command
+          Value: ConfigAndStartCloudWatchAgent
+      Content:
+        schemaVersion: '2.2'
+        parameters:
+          ArtifactS3Bucket:
+            type: String
+          ArtifactS3Path:
+            type: String
+        mainSteps:
+        - action: aws:runShellScript
+          name: dirCollectD
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "sudo mkdir -p /usr/share/collectd/"
+              - sudo su - ec2-user -c "sudo touch /usr/share/collectd/types.db"
+        - action: aws:runShellScript
+          name: copyConfig
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "sudo cp -v /home/ec2-user/app/aws/amazon-cloudwatch-agent.json /opt/aws/amazon-cloudwatch-agent/bin/config.json"
+        - action: aws:runShellScript
+          name: startAgent
+          inputs:
+            timeoutSeconds: '60'
+            runCommand:
+              - sudo su - ec2-user -c "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json"
+Outputs:
+  DocumentYumUpdate:
+    Value: !Ref DocumentYumUpdate
+  DocumentSystemDeps:
+    Value: !Ref DocumentSystemDeps
+  DocumentBundleInstall:
+    Value: !Ref DocumentBundleInstall
+  DocumentDownloadCodebase:
+    Value: !Ref DocumentDownloadCodebase
+  DocumentInstallGems:
+    Value: !Ref DocumentInstallGems
+  DocumentConfigAndStartCloudWatchAgent:
+    Value: !Ref DocumentConfigAndStartCloudWatchAgent

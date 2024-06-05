@@ -1,0 +1,211 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  BucketName:
+    Type: String
+    Default: cw-agent-app-325252
+  InstanceType:
+    Type: String
+    Default: t3.micro
+  VpcId:
+    Type: String
+    Default: vpc-08f0ec02f7471b018
+  ImageId:
+    Type: String
+    Default: ami-05e5688f9ac7ade41
+  SubnetId:
+    Type: String
+    Default: subnet-0d8058cb02f147a86
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      IamInstanceProfile:
+        Ref: EC2InstanceProfile
+      InstanceType:
+        Ref: InstanceType
+      ImageId:
+        Ref: ImageId
+      NetworkInterfaces:
+      - DeviceIndex: 0
+        SubnetId:
+          Ref: SubnetId
+        AssociatePublicIpAddress: true
+        GroupSet:
+        - Fn::GetAtt:
+          - SG
+          - GroupId
+        DeleteOnTermination: true
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId:
+        Ref: VpcId
+      SecurityGroupIngress:
+      - IpProtocol: -1
+        FromPort: -1
+        ToPort: -1
+        CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+      - IpProtocol: -1
+        FromPort: -1
+        ToPort: -1
+        CidrIp: 0.0.0.0/0
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: ec2.amazonaws.com
+          Action: sts:AssumeRole
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+      Policies:
+      - PolicyName: AccessS3BucketPolicy
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+            - s3:PutObject
+            - s3:GetObject
+            Resource:
+              Fn::Sub: arn:aws:s3:::${BucketName}/*
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+      - Ref: SSMRole
+  RunCommandStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.ca-central-1.amazonaws.com/cw-agent-app-325252/cfn/de9e9554b217c308dc73af369c98f92f.template
+  MyLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /examples/agent/app
+      RetentionInDays: 7
+  ConfigureAppDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      DocumentType: Automation
+      Content:
+        schemaVersion: '0.3'
+        description: Run a script on Linux instances.
+        parameters:
+          InstanceId:
+            type: StringList
+          ArtifactS3Bucket:
+            type: String
+            default: cw-agent-app-325252
+          ArtifactS3Path:
+            type: String
+            default: ''
+          ArtifactS3Filename:
+            type: String
+            default: app.zip
+        mainSteps:
+        - name: UpdateYum
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentYumUpdate
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: UpdateSSMAgent
+          action: aws:runCommand
+          inputs:
+            DocumentName: AWS-UpdateSSMAgent
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: InstallCloudWatchAgent
+          action: aws:runCommand
+          inputs:
+            DocumentName: AWS-ConfigureAWSPackage
+            InstanceIds: '{{InstanceId}}'
+            Parameters:
+              action: Install
+              name: AmazonCloudWatchAgent
+              version: latest
+              installationType: Uninstall and reinstall
+              additionalArguments: '{}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: SystemDeps
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentSystemDeps
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: InstallGems
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentInstallGems
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: DownloadCodebase
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentDownloadCodebase
+            InstanceIds: '{{InstanceId}}'
+            Parameters:
+              ArtifactS3Bucket: '{{ArtifactS3Bucket}}'
+              ArtifactS3Path: '{{ArtifactS3Path}}'
+              ArtifactS3Filename: '{{ArtifactS3Filename}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: BundleInstall
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentBundleInstall
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true
+        - name: ConfigureCloudWatchAgent
+          action: aws:runCommand
+          inputs:
+            DocumentName:
+              Fn::GetAtt:
+              - RunCommandStack
+              - Outputs.DocumentConfigAndStartCloudWatchAgent
+            InstanceIds: '{{InstanceId}}'
+            CloudWatchOutputConfig:
+              CloudWatchLogGroupName:
+                Ref: AWS::StackName
+              CloudWatchOutputEnabled: true

@@ -4,9 +4,22 @@ echo "== deploy ec2 instance"
 
 STACK_NAME="aws-cw-agent-app"
 
+CFN_BUCKET=cw-agent-app-325252
+CFN_FILENAME=cfn
+
+# package
+# -----------------
+echo "== packaging CFN to S3..."
+aws cloudformation package \
+--s3-bucket $CFN_BUCKET \
+--s3-prefix ${CFN_FILENAME} \
+--template-file template.yaml \
+--output-template-file packaged-template.yaml
+
+
 # https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
 aws cloudformation deploy \
---template-file template.yaml \
+--template-file packaged-template.yaml \
 --capabilities CAPABILITY_NAMED_IAM \
 --no-execute-changeset \
 --region ca-central-1 \

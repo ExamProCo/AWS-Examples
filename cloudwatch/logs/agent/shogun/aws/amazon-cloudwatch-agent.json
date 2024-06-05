@@ -1,0 +1,72 @@
+{
+	"agent": {
+		"metrics_collection_interval": 60,
+		"run_as_user": "ec2-user"
+	},
+	"logs": {
+		"logs_collected": {
+			"files": {
+				"collect_list": [
+					{
+						"file_path": "/home/ec2-user/app/log/puma.stdout.log*",
+						"log_group_name": "/examples/agent/app/puma.stdout.log",
+						"log_stream_name": "{instance_id}"
+					}
+				]
+			}
+		}
+	},
+	"metrics": {
+		"metrics_collected": {
+			"statsd":{
+				"service_address":":8126",
+				"metrics_collection_interval":60,
+				"metrics_aggregation_interval":300
+			},
+			"cpu": {
+				"measurement": [
+					"cpu_usage_idle",
+					"cpu_usage_iowait",
+					"cpu_usage_user",
+					"cpu_usage_system"
+				],
+				"metrics_collection_interval": 60,
+				"resources": [
+					"*"
+				],
+				"totalcpu": false
+			},
+			"disk": {
+				"measurement": [
+					"used_percent",
+					"inodes_free"
+				],
+				"metrics_collection_interval": 60,
+				"resources": [
+					"*"
+				]
+			},
+			"diskio": {
+				"measurement": [
+					"io_time"
+				],
+				"metrics_collection_interval": 60,
+				"resources": [
+					"*"
+				]
+			},
+			"mem": {
+				"measurement": [
+					"mem_used_percent"
+				],
+				"metrics_collection_interval": 60
+			},
+			"swap": {
+				"measurement": [
+					"swap_used_percent"
+				],
+				"metrics_collection_interval": 60
+			}
+		}
+	}
+}
