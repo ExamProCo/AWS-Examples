@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Express App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to our Simple Express App!</h1>
+    <p>This is a basic HTML page served by Express.</p>
+    <button id="apiButton">Call API</button>
+    <p id="apiResponse"></p>
+
+    <script>
+        document.getElementById('apiButton').addEventListener('click', async () => {
+            const response = await fetch('/api/hello');
+            const data = await response.json();
+            document.getElementById('apiResponse').textContent = data.message;
+        });
+    </script>
+</body>
+</html>
