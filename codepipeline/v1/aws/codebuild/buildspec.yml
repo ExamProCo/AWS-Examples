@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 20
     commands:
       - npm install -g npm@latest
   pre_build:
@@ -20,5 +20,6 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
+    - "**/*"
+  base-directory: '.'
   name: express-app-$(date +%Y-%m-%d-%H-%M-%S).zip
