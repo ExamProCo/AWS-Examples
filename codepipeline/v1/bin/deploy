@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "== deploy-codepipeline"
+
+STACK_NAME="aws-codepipeline-v1"
+
+# https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/deploy/index.html
+aws cloudformation deploy \
+--template-file ./cfn/template.yaml \
+--capabilities CAPABILITY_NAMED_IAM \
+--no-execute-changeset \
+--region ca-central-1 \
+--stack-name $STACK_NAME \
+--parameter-overrides \
+CodeCommitRepoName="express-simple-ab"
