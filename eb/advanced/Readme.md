@@ -1,72 +1,64 @@
+# ElasticBeanstalk - Advanced
 
+## App and Database Configurations
 ### Install Deps
-
 ```sh
 npm install
 ```
 
 ### Start Server
-
-
 ```sh
 DATABASE_URL="postgresql://postgres:password@localhost:5432/study-sync" PORT=4567 npm start
 ```
 
-# Run Postgres Server
-
+### Run Postgres Server
 ```sh
 docker compose up
 ```
 
-## Install Postgres Client
-
-```
+### Install Postgres Client
+```sh
 sudo apt install postgres
 ```
 
-## Create initial database
-
+### Create Initial Database
 ```sh
 createdb study-sync -h localhost -U postgres
 ```
 
-## Connect to Postgres Client
+### Connect to Postgres Client
 
-sh```
+```sh
 psql postgresql://postgres:password@localhost:5432/study-sync
 ```
-
 https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/main/journal/week04.md
 
-## Create a postgres table
+### Create a Postgres Table
 
-## Create Schema
-
+#### Create Schema
+```sh
 psql study-sync < sql/schema.sql -h localhost -U postgres
-
-## Import Data
-
-psql study-sync < sql/seed.sql -h localhost -U postgres
-
-## Verify Data
-
-sh```
-psql postgresql://postgres:password@localhost:5432/study-sync
 ```
 
+#### Import Data
+```sh
+psql study-sync < sql/seed.sql -h localhost -U postgres
+```
+#### Verify Data
+```sh
+psql postgresql://postgres:password@localhost:5432/study-sync
+```
 ```sql
 SELECT * FROM questions;
 ```
 
-## Install EB CLI
+## ElasticBeanstalk Configurations
+### Install EB CLI
 
 > EB at the the time of this video only works in 3.11 and not 3.12 so we had to install python 3.11 and create a virtualenv
 
 ```sh
 brew install python@3.11
-```
-
-```sh
 pip install virtualenv
 virtualenv -p python3.11 ~/myenv
 source ~/myenv/bin/activate
@@ -74,46 +66,42 @@ python --version
 pip install awsebcli --upgrade
 ```
 
-## Manual Install if you don't have to do the virtual enviroment (optional)
+### Manual Install if you don't have to do the virtual enviroment (*optional*)
 ```sh
 git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
 python ./aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
 echo 'export PATH="/home/gitpod/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
-## Initialize EB
+#### Initialize EB
 
-```
+```sh
 eb init
 ```
 
-
-## Set Codesource
-
+#### Set Codesource
 ```sh
 eb codesource
 ```
 
-## Zip Directory
+#### Zip Directory
 
 ```sh
 zip -r app.zip app
 ```
-
-# Unzip Directory
+#### Unzip Directory
 
 ```sh
  unzip app.zip 
 ```
 
-## Make Config Var for Eb Extensions
-
+#### Make `Config Var` for Eb Extensions
+```sh
 mkdir .ebextensions
 touch .ebextensions/001_envar.config
+```
 
-## Create IAM Profile
-
-
+#### Create IAM Profile
 ```sh
 aws iam create-instance-profile --instance-profile-name StudySyncInstanceProfile
 aws iam add-role-to-instance-profile \
@@ -121,8 +109,8 @@ aws iam add-role-to-instance-profile \
     --instance-profile-name StudySyncInstanceProfile
 ```
 
-## Importing into RDS
-
-
+#### Importing into RDS
+```sh
 psql mydatabase < sql/schema.sql -h rds-basic-rdsinstance-uzdzjcuz1opq.cv1x0r3utzcm.ca-central-1.rds.amazonaws.com -U postgres 
 psql mydatabase < sql/seed.sql -h rds-basic-rdsinstance-uzdzjcuz1opq.cv1x0r3utzcm.ca-central-1.rds.amazonaws.com -U postgres 
+```
