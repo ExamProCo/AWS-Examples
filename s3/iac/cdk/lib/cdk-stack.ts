@@ -8,3 +8,10 @@ export class CdkStack extends Stack {
     const bucket = new s3.Bucket(this, 'MyBucket');
   }
 }
+
+export class CdkStack extends Stack {
+  constructor(scope: Construct, id: String, props?: StackProps) {
+    super(scope,id,props)
+    const bucket = new s3.Bucket(this, 'MyBucket')
+  }
+}

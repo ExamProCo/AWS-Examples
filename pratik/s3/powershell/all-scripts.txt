@@ -1,0 +1,12 @@
+--create bucket
+
+Import-Module AWS.Tools.s3api
+$region = "us-east-1"
+
+$bucketName = Read-Host Prompt 'Enter the S3 bucket name'
+
+Write-Host "AWS Region : $region"
+Write-Host "S3 Bucket: $bucketName"
+
+New-S3Bucket -Bucketname $bucketName -Region $region
+
