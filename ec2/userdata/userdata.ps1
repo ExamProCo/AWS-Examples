@@ -4,6 +4,8 @@
 # At the time of the script the Windows Servers on AWS was showing PowerShell 5.1 Desktop Edition
 # $PSVersionTable
 
+# If this script doesnt install apache on boot you will need to navigate to https://www.apachelounge.com/download/ > right click the newest download link > copy link address > replace the $downloadUrl with the copied link. 
+# To fix server not serving the webpage you need to add a rule in windows server filewall by running New-NetFirewallRule -DisplayName "Apache HTTP Inbound" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80
 
 # Define download URL for Apache HTTP Server (Update the URL to the latest version)
 # https://www.apachelounge.com/download/
@@ -47,4 +49,5 @@ Start-Service -Name "Apache2.4"
 
 # Optionally, use ApacheMonitor.exe to manage the Apache service
 # Start-Process -FilePath $serviceMonitorPath
+
 </powershell>
