@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-echo "== deploy asg acm"
+# Test text
+echo "== deploy asg acm stack =="
 
 STACK_NAME="alb-basic-acm"
 
